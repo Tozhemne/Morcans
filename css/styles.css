@@ -11,6 +11,14 @@ body {
   background-color: #222227;
 }
 
+.body-no-scroll {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
 header {
   position: fixed;
   z-index: 9998;
@@ -74,6 +82,174 @@ nav li {
   color: #FFFFFF;
   border: none;
   cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.menu-pop-up {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(6px);
+  background-color: #252525CC;
+  z-index: 9999;
+}
+
+.menu-pop-up-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 27%;
+  padding-bottom: 124px;
+  gap: 36px;
+  background-color: #FFFFFF;
+  backdrop-filter: blur(48px);
+  position: absolute;
+  right: 0%;
+  top: 0;
+  overflow: auto;
+}
+
+.menu-pop-up-close-block {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  border-bottom: 1px solid #EEEEEE;
+}
+
+.menu-pop-up-close-block span {
+  font-family: 'Ilisarniq', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 28px;
+  color: #1E1E1E;
+}
+
+.desktop-pop-up-close-icon {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+
+.pop-up-info-block {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  padding: 0px 24px;
+}
+
+.pop-up-info-block img {
+  height: 124px;
+}
+
+.pop-up-info-block div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
+  width: 100%;
+}
+
+.pop-up-info-block-title {
+  font-family: 'Ilisarniq', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 28px;
+  color: #1E1E1E;
+}
+
+.pop-up-info-block-text {
+  font-family: 'Ilisarniq', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 20px;
+  color: #4C4C4C;
+}
+
+.pop-up-contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0 24px;
+  width: 100%;
+}
+
+.form-input-block {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.form-label {
+  font-family: 'Ilisarniq', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #252525;
+  margin-bottom: 8px;
+}
+
+.form-input {
+  font-family: 'Ilisarniq', sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 28px;
+  color: #1E1E1E; 
+  border: 1px solid #EEEEEE;
+  height: 45px;
+  width: 100%;
+  padding: 10px;
+}
+
+.service {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding-right: 36px;
+  background: #fff url('../img/select-type-form-input-icon.svg') no-repeat right 12px center;
+  background-size: auto 16px;
+}
+
+.form-input::placeholder {
+  color: #B8B8B8;
+}
+
+.contact-form-block {
+  padding: 0 24px;
+}
+
+.contact-form-button {
+  width: 100%;
+  height: 42px;
+  background-color: #CCA24B;
+  text-align: center;
+  padding: 12px 24px;
+  cursor: pointer;
+}
+
+.contact-form-button span {
+  font-family: 'Ilisarniq', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: #FFFFFF;
+}
+
+.error {
+  font-family: 'Ilisarniq', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+  color: rgb(237, 68, 68);
+  margin-top: 4px;
 }
 
 .hamburger-menu {
@@ -187,7 +363,54 @@ nav li {
   text-decoration: none;
 }
 
+@media (max-width: 1439px) and (min-width: 1280px) {
+  .menu-pop-up-content {
+    width: 35%;
+  }
+}
+
 @media (max-width: 1279px) and (min-width: 1024px) {
+  .menu-pop-up-content {
+    width: 35%;
+    gap: 22px;
+  }
+
+  .menu-pop-up-close-block span {
+    font-size: 17px;
+    line-height: 23px;
+  }
+
+  .desktop-pop-up-close-icon {
+    width: 26px;
+    height: 26px;
+  }
+
+  .pop-up-info-block img {
+    height: 94px;
+  }
+
+  .pop-up-info-block-title {
+    font-size: 17px;
+    line-height: 23px;
+  }
+
+  .pop-up-contact-form {
+    gap: 8px;
+  }
+
+  .form-input {
+    font-size: 17px;
+    line-height: 19px;
+    height: 40px;
+  }
+
+  .service-option {
+    font-size: 17px;
+    line-height: 23px;
+  }
+
+  /* Footer section */
+
   .footer-container {
     padding: 80px 80px 60px;
   }
@@ -204,6 +427,47 @@ nav li {
 }
 
 @media (max-width: 1023px) and (min-width: 768px) {
+  .menu-pop-up-content {
+    width: 45%;
+    gap: 18px;
+  }
+
+  .menu-pop-up-close-block span {
+    font-size: 17px;
+    line-height: 23px;
+  }
+
+  .desktop-pop-up-close-icon {
+    width: 26px;
+    height: 26px;
+  }
+
+  .pop-up-info-block img {
+    height: 94px;
+  }
+
+  .pop-up-info-block-title {
+    font-size: 17px;
+    line-height: 23px;
+  }
+
+  .pop-up-contact-form {
+    gap: 8px;
+  }
+
+  .form-input {
+    font-size: 17px;
+    line-height: 19px;
+    height: 40px;
+  }
+
+  .service-option {
+    font-size: 17px;
+    line-height: 23px;
+  }
+
+  /* Footer section */
+
   .footer-container {
     padding: 60px 32px;
   }
@@ -268,7 +532,10 @@ nav li {
   }
 
   .mobile-menu-pop-up {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
     position: fixed;
     top: 0;
     left: 0;
@@ -279,16 +546,28 @@ nav li {
     box-shadow: 
       inset 0px 0px 68px rgba(0, 0, 0, 0.05),
       inset 0px 4px 4px rgba(0, 0, 0, 0.05);
-    padding: 24px;
+    padding: 24px 24px 36px;
     z-index: 9999;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.5s ease;
+    overflow: auto;
   }
   
   .mobile-menu-pop-up.open {
     opacity: 1;
     pointer-events: auto;
+  }
+
+  .mobile-menu-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 100%;
+  }
+
+  .menu-pop-up-close-block {
+    justify-content: center;
   }
 
   .mobile-menu-header {
@@ -301,14 +580,19 @@ nav li {
     cursor: pointer;
   }
 
-  .mobile-menu-content {
+  .mobile-form {
     display: flex;
     flex-direction: column;
     gap: 24px;
-    margin-top: 20px;
   }
 
-  .mobile-menu-content span {
+  .mobile-menu-info {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .mobile-menu-info span {
     font-family: 'Ilisarniq', sans-serif;
     font-weight: 400;
     font-size: 20px;
@@ -317,8 +601,12 @@ nav li {
     cursor: pointer;
   }
 
-  .mobile-menu-content span:hover {
+  .mobile-menu-info span:hover {
     color: #CCA24B;
+  }
+
+  .pop-up-mobile-btn {
+    display: block;
   }
 
   /* Footer */
