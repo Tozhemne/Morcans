@@ -80,7 +80,7 @@ p {
 
 .our-partners {
   position: relative; 
-  padding: 120px 110px;
+  padding: 120px 100px;
   background-color: #FFFFFF;
   align-items: center;
   justify-content: center;
@@ -312,7 +312,7 @@ p {
   width: 100%;
   align-items: center;
   justify-content: center;
-  padding-top: 70px;
+  padding: 70px 100px 0px;
 }
 
 .our-services-content {
@@ -346,7 +346,7 @@ p {
   position: relative;
 }
 
-.our-services-slider-block-item img {
+.slider-block-item-img {
   height: 210px;
   object-fit: contain;
 }
@@ -355,7 +355,7 @@ p {
   position: absolute;
   left: 47%;
   top: 37%;
-  height: 48px !important;
+  height: 48px;
   z-index: 1;
 }
 
@@ -457,4 +457,665 @@ p {
   font-size: 16px;
   line-height: 24px;
   color: #F0F0F0;
+}
+
+@media (max-width: 1439px) and (min-width: 1280px) {
+  .h3 {
+    font-size: 36px;
+    line-height: 44px;
+  }
+
+  /* Hero section */
+
+  .hero-title {
+    font-size: 46px;
+    line-height: 62px;
+  }
+
+  /* Our partners section */
+
+  .our-partners-content {
+    gap: 60px;
+  }
+
+  .logo-block-row img {
+    height: 165px;
+  }
+
+  /* Morcans rules section */
+
+  .morcans-info p {
+    font-size: 36px;
+    line-height: 44px;
+  }
+
+  .rule-block {
+    padding: 12px 0;
+    min-width: 126px;
+  }
+
+  .rule-block span {
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+  .ceo-quote-text {
+    font-size: 21px;
+    line-height: 34px;
+  }
+
+  .stepan-signature-img {
+    height: 190px;
+    bottom: -40%;
+  }
+
+  /* Our services section */
+
+  .our-services-slider-block-item {
+    max-width: 552px;
+    padding: 50px 26px 32px;
+  }
+
+  .slider-block-item-img {
+    height: 180px;
+  }
+
+  /* Our advantages section */
+
+  .our-advantages {
+    padding: 120px 100px;
+  }
+
+  .our-advantages-info {
+    gap: 48px 38px;
+  }
+
+  .advantages-info-item {
+    padding: 24px 16px;
+    max-width: 515px;
+  }
+}
+
+@media (max-width: 1279px) and (min-width: 1024px) {
+  .h3 {
+    font-size: 26px;
+    line-height: 32px;
+  }
+
+  /* Hero section */
+
+  .hero {
+    padding: 0 80px;
+  }
+
+  .hero-content {
+    gap: 60px;
+  }
+
+  .hero-title {
+    font-size: 34px;
+    line-height: 52px;
+  }
+
+  .scroll-down {
+    bottom: 80px;
+  }
+
+  /* Our partners section */
+
+  .our-partners {
+    padding: 80px;
+  }
+
+  .our-partners-content {
+    gap: 48px;
+  }
+
+  .logo-block-row {
+    gap: 24px;
+  }
+
+  .logo-block-row img {
+    height: 125px;
+  }
+
+  /* Morcans rules section */
+
+  .morcans-rules {
+    padding: 80px;
+  }
+
+  .morcans-rules-content {
+    gap: 130px;
+  }
+
+  .morcans-info {
+    margin-bottom: 48px;
+  }
+
+  .morcans-info p {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .rule-block {
+    padding: 12px 8px;
+    min-width: 110px;
+  }
+
+  .rule-block span {
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+  .ceo-quote-text {
+    font-size: 19px;
+    line-height: 25px;
+  }
+
+  .stepan-signature-img {
+    height: 150px;
+    bottom: -50%;
+    left: 35%;
+  }
+
+  /* Our services section */
+
+  .our-services {
+    padding: 80px 80px 0;
+  }
+
+  .our-services-content {
+    gap: 48px;
+  }
+
+  .our-services-slider-block {
+    justify-content: center;
+    gap: 18px;
+  }
+
+  .our-services-slider-block-item {
+    max-width: 420px;
+    padding: 35px 16px 16px;
+    gap: 32px;
+  }
+
+  .slider-item-info-title {
+    font-size: 19px;
+    line-height: 24px;
+  }
+
+  .slider-block-item-img {
+    height: 170px;
+  }
+
+  /* Our advantages section */
+
+  .our-advantages {
+    padding: 80px;
+  }
+
+  .our-advantages-content {
+    gap: 48px;
+  }
+
+  .our-advantages-info {
+    gap: 38px 18px;
+  }
+
+  .advantages-info-item {
+    padding: 24px 16px;
+    max-width: 420px;
+  }
+}
+
+@media (max-width: 1023px) and (min-width: 768px) {
+  .h3 {
+    font-size: 22px;
+    line-height: 26px;
+  }
+
+  /* Hero section */
+
+  .hero {
+    padding: 0 32px;
+  }
+
+  .hero-content {
+    gap: 32px;
+  }
+
+  .hero-content p {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .hero-title {
+    font-size: 28px;
+    line-height: 48px;
+  }
+
+  .scroll-down {
+    bottom: 60px;
+    width: 48px;
+    height: 48px;
+  }
+
+  /* Our partners section */
+
+  .our-partners {
+    padding: 60px 32px;
+  }
+
+  .our-partners-content {
+    gap: 48px;
+  }
+
+  .logo-block-row {
+    gap: 16px;
+  }
+
+  .logo-block-row img {
+    height: 110px;
+  }
+
+  /* Morcans rules section */
+
+  .morcans-rules {
+    padding: 60px 32px;
+  }
+
+  .morcans-rules-img {
+    height: 580px;
+  }
+
+  .morcans-rules-content {
+    gap: 60px;
+  }
+
+  .advantages-info-title {
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  .morcans-info {
+    margin-bottom: 24px;
+    gap: 16px;
+  }
+
+  .morcans-info p {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .morcans-info span {
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+  .rules-info {
+    gap: 16px;
+  }
+
+  .rule-block {
+    padding: 12px 8px;
+    min-width: 80px;
+  }
+
+  .rule-block span {
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+  .soax-ceo-quote {
+    gap: 24px;
+  }
+
+  .soax-logo-img {
+    height: 48px;
+  }
+
+  .ceo-quote-text {
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  .stepan-signature-img {
+    height: 100px;
+    bottom: -50%;
+    left: 30%;
+  }
+
+  /* Our services section */
+
+  .our-services {
+    padding: 60px 32px 0;
+  }
+
+  .our-services-content {
+    gap: 48px;
+  }
+
+  .our-services-slider-block {
+    justify-content: center;
+    gap: 18px;
+  }
+
+  .our-services-slider-block-item {
+    max-width: 500px;
+    padding: 35px 16px 16px;
+    gap: 32px;
+  }
+
+  .slider-item-info-title {
+    font-size: 19px;
+    line-height: 24px;
+  }
+
+  .slider-block-item-img {
+    height: 170px;
+  }
+
+  .slick-prev {
+    left: 35px;
+    z-index: 1;
+  }
+
+  .slick-next {
+    right: 35px;
+    z-index: 1;
+  }
+
+  /* Our advantages section */
+
+  .our-advantages {
+    padding: 60px 32px;
+  }
+
+  .our-advantages-content {
+    gap: 48px;
+  }
+
+  .our-advantages-info {
+    gap: 28px 16px;
+  }
+
+  .advantages-info-item {
+    padding: 24px 16px;
+    max-width: 340px;
+  }
+
+  .advantages-info-item-title img {
+    height: 48px;
+    width: 48px;
+  }
+
+  .advantages-info-item-title span {
+    font-size: 19px;
+    line-height: 24px;
+  }
+
+  .advantages-info-item-title {
+    gap: 16px;
+  }
+
+  .advantages-info-item-text {
+    font-size: 14px;
+    line-height: 19px;
+    min-height: 100px;
+  }
+}
+
+@media (max-width: 767px) {
+  .h3 {
+    font-size: 18px;
+    line-height: 22.32px;
+  }
+  
+  /* Hero section */
+
+  .hero {
+    padding: 0 16px;
+  }
+
+  .hero-content {
+    gap: 32px;
+  }
+
+  .hero-content p {
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+  .hero-content span {
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+  .hero-title {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .scroll-down {
+    bottom: 50px;
+    width: 32px;
+    height: 32px;
+  }
+
+  /* Our partners section */
+
+  .our-partners {
+    padding: 60px 16px 90px;
+  }
+
+  .our-partners-content {
+    gap: 24px;
+  }
+
+  .our-partners-logo-block {
+    flex-direction: row;
+  }
+
+  .logo-block-row {
+    gap: 0;
+    flex-direction: column;
+  }
+
+  .logo-block-row img {
+    height: 110px;
+  }
+
+  /* Morcans rules section */
+
+  .morcans-rules {
+    padding: 0px 16px;
+    background: linear-gradient(to bottom, #FFFFFF 0%, #FFFFFF 55%, #252525 55%, #252525 100%);
+  }
+
+  .morcans-rules-img {
+    height: 380px;
+    top: unset;
+    bottom: -120px;
+  }
+
+  .morcans-rules-content {
+    gap: 60px;
+    flex-direction: column-reverse;
+  }
+  
+  .morcans-rules-advantages {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .soax-info {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .advantages-info-title {
+    font-size: 14px;
+    line-height: 19px;
+    margin-bottom: 16px;
+  }
+
+  .morcans-info {
+    margin-bottom: 16px;
+    gap: 8px;
+  }
+
+  .morcans-info p {
+    font-size: 19px;
+    line-height: 24px;
+  }
+
+  .morcans-info span {
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+  .rules-info {
+    gap: 16px;
+  }
+
+  .rule-block {
+    padding: 12px 8px;
+    min-width: 80px;
+  }
+
+  .rule-block span {
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+  .soax-ceo-quote {
+    gap: 16px;
+    max-width: 472px;
+  }
+
+  .soax-logo-img {
+    height: 32px;
+  }
+
+  .ceo-quote-text {
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  .stepan-signature-img {
+    position: relative;
+    height: 100px;
+    bottom: unset;
+    left: unset;
+    object-fit: contain;
+    margin-top: 24px;
+  }
+
+  /* Our services section */
+
+  .our-services {
+    padding: 60px 16px 0;
+  }
+
+  .our-services-content {
+    gap: 24px;
+    max-width: 472px;
+  }
+
+  .our-services-slider-block {
+    justify-content: center;
+    gap: 18px;
+  }
+
+  .our-services-slider-block-item {
+    max-width: 95%;
+    padding: 26px 16px 16px;
+    gap: 24px;
+  }
+
+  .slider-item-info-title {
+    font-size: 17px;
+    line-height: 23px;
+  }
+
+  .slider-item-info-text {
+    font-size: 14px;
+    line-height: 19px;
+    min-height: 155px;
+  }
+
+  .slider-block-item-img {
+    height: 100px;
+  }
+
+  .finger-icon {
+    top: 28%;
+    height: 28px;
+  }
+
+  .slick-dotted.slick-slider {
+    margin-bottom: 0;
+  }
+
+  .slick-next, .slick-prev { display: none !important; }
+
+  .slick-prev::before, .slick-next::before { content: ''; }
+
+  .slick-dots {
+    position: relative;
+    bottom: unset;
+    margin-top: 20px;
+  }
+
+  .slick-dots li button::before {
+    color: #FFFFFF;
+    /* #CCA24B */
+    opacity: 1;
+  }
+
+  .slick-dots li.slick-active button::before {
+    color: #CCA24B;
+    opacity: 1;
+  }
+
+  /* Our advantages section */
+
+  .our-advantages {
+    padding: 60px 16px;
+  }
+
+  .our-advantages-content {
+    gap: 24px;
+    max-width: 472px;
+  }
+
+  .our-advantages-info {
+    gap: 28px 16px;
+  }
+
+  .advantages-info-item {
+    padding: 24px 16px;
+    max-width: unset;
+  }
+
+  .advantages-info-item-title img {
+    height: 48px;
+    width: 48px;
+  }
+
+  .advantages-info-item-title span {
+    font-size: 19px;
+    line-height: 24px;
+  }
+
+  .advantages-info-item-title {
+    gap: 16px;
+  }
+
+  .advantages-info-item-text {
+    font-size: 14px;
+    line-height: 19px;
+  }
 }
