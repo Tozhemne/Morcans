@@ -22,39 +22,35 @@ function setupNavigation(navItems, isMobile) {
 
   navItems.forEach((item) => {
     item.addEventListener('click', (e) => {
-      e.preventDefault(); // Prevent any default behavior
+      e.preventDefault();
       const targetClass = sectionMap[item.textContent.trim()];
       const target = document.querySelector(targetClass);
       console.log('target', target);
-  
+
       if (target) {
         const headerHeight = 30;
-        const targetRect = target.getBoundingClientRect();
-        console.log('targetRect', targetRect);
-
-        const scrollTop = window.scrollY || window.pageYOffset;
-        const targetTop = targetRect.top + scrollTop - headerHeight;
-        console.log('scrollTop', scrollTop);
-        console.log('targetTop', targetTop);
 
         if (isMobile && mobileOverlay) {
-          // Ensure overlay is hidden and scroll is enabled before scrolling
           mobileOverlay.classList.add('hidden');
           manageBodyScroll(mobileOverlay, 'enable');
+          const targetTop = target.offsetTop - headerHeight;
+
+          window.scrollTo({
+            top: targetTop,
+            behavior: 'smooth'
+          });
+        } else {
+          const targetTop = target.offsetTop - headerHeight;
+
+          window.scrollTo({
+            top: targetTop,
+            behavior: 'smooth'
+          });
         }
-
-        // Perform the scroll
-        window.scrollTo({
-          top: targetTop,
-          behavior: 'smooth'
-        });
-
-        // Debug log to verify scroll position
-        console.log(`Scrolling to ${item.textContent}: targetTop = ${targetTop}`);
       } else {
         console.log(`Target section for ${item.textContent} not found`);
       }
-    }); // Ensure listener persists, but can be adjusted
+    });
   });
 }
 
@@ -167,8 +163,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   const hamburgerBtn = document.getElementById('hamburger-button');
   const backArrow = document.querySelector('.pop-up-back-arrow');
   const mobileCloseIcon = document.querySelector('.pop-up-close-icon');
-
-
 
   restrictToLettersAndSpaces(document.querySelector('.fullName'));
   restrictToDigits(document.querySelector('.phone'), 10);
