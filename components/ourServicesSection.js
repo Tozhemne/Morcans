@@ -35,7 +35,7 @@ function generateOurServicesSection(ourServicesData) {
   return `<div class="our-services">${contentHtml}</div>`;
 }
 
-function initSliders() {
+function initOurServicesSlider() {
   const isMobile = window.innerWidth < 767;
   $('.our-services-slider').slick({
     infinite: false,
@@ -53,7 +53,7 @@ export function renderServices(servicesData, containerId) {
   if (container) {
     const html = generateOurServicesSection(servicesData);
     container.innerHTML = html;
-    initSliders();
+    initOurServicesSlider();
   } else {
     console.log(`Container with id "${containerId}" not found.`);
   }

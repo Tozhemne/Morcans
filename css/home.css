@@ -66,6 +66,10 @@ p {
   color: #F0F0F0;
 }
 
+.hero-create-request {
+  display: none;
+}
+
 .scroll-down {
   position: absolute;
   bottom: 50px;
@@ -108,6 +112,10 @@ p {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.our-partners-logo-slider-wrapper {
+  display: none;
 }
 
 .logo-block-row {
@@ -881,7 +889,7 @@ p {
   }
 
   .hero-content {
-    gap: 32px;
+    gap: 24px;
   }
 
   .hero-content p {
@@ -899,36 +907,162 @@ p {
     line-height: 28px;
   }
 
+  .hero-create-request {
+    display: block;
+    width: 100%;
+    height: 42px;
+    max-width: 340px;
+  }
+
+  .hero-create-request-btn {
+    background-color: #CCA24B;
+    width: 100%;
+    height: 100%;
+    padding: 10px 24px;
+    font-family: 'Ilisarniq', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .hero-mobile-form-pop-up {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    backdrop-filter: blur(48px);
+    box-shadow: 
+      inset 0px 0px 68px rgba(0, 0, 0, 0.05),
+      inset 0px 4px 4px rgba(0, 0, 0, 0.05);
+    padding: 24px 16px 36px;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    overflow: auto;
+  }
+  
+  .hero-mobile-form-pop-up.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mobile-menu-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .menu-pop-up-close-block {
+    justify-content: center;
+  }
+
+  .mobile-menu-header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    background-color: rgba(20, 20, 22, 0.56);
+    padding: 6px 12px;
+    border-radius: 12px;
+  }
+
+  .pop-up-back-arrow, .pop-up-close-icon {
+    cursor: pointer;
+  }
+
+  .mobile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .mobile-menu-info {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .mobile-menu-info span {
+    font-family: 'Ilisarniq', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24.8px;
+    color: rgba(227, 234, 241, 1);
+    cursor: pointer;
+  }
+
+  .mobile-menu-info span:hover {
+    color: #CCA24B;
+  }
+
+  .pop-up-mobile-btn {
+    display: block;
+  }
+
   .scroll-down {
     bottom: unset;
     left: unset;
     position: relative;
-    width: 32px;
-    height: 32px;
+    width: 52px;
+    height: 52px;
     transform: none;
   }
 
   /* Our partners section */
 
   .our-partners {
-    padding: 60px 16px 90px;
+    padding: 60px 16px 48px;
   }
 
   .our-partners-content {
+    border-bottom: 1px solid #EEEEEE;
     gap: 24px;
+    padding-bottom: 48px;
+  }
+
+  .our-partners-logo-slider-wrapper {
+    position: relative;
+    display: block;
+    width: 100%;
   }
 
   .our-partners-logo-block {
-    flex-direction: row;
+    display: none;
+  }
+  
+  .our-partners-logo-slider {
+    width: 100%;
   }
 
   .logo-block-row {
+    display: flex !important;
     gap: 0;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
   }
 
   .logo-block-row img {
-    height: 110px;
+    height: 88px;
+    width: auto;
+    max-width: 48%;
+    object-fit: contain;
   }
 
   /* Morcans rules section */
@@ -1032,6 +1166,7 @@ p {
   .our-services-slider-block {
     justify-content: center;
     gap: 18px;
+    margin-bottom: 20px;
   }
 
   .our-services-slider-block-item {
@@ -1071,18 +1206,29 @@ p {
   .slick-dots {
     position: relative;
     bottom: unset;
-    margin-top: 20px;
   }
 
   .slick-dots li button::before {
-    color: #FFFFFF;
-    /* #CCA24B */
-    opacity: 1;
+    opacity: 0;
   }
 
   .slick-dots li.slick-active button::before {
-    color: #CCA24B;
-    opacity: 1;
+    opacity: 0;
+  }
+
+  .slick-dots li button {
+    background-color: #D9D9D9;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    padding: 0;
+  }
+
+  .slick-active button {
+    background-color: #CCA24B !important;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
   }
 
   /* Our advantages section */

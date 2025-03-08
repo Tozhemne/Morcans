@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/home.css">
   </head>
+
   <body>
 
     <div id="header"></div>
@@ -27,6 +28,11 @@
             When partnering with <span>MORCANS DIGITAL</span>, you can expect an exceptional level of professionalism.
             We apply creativity and pursuit of excellence in every project.
           </p>
+          <div class="hero-create-request">
+            <button class="hero-create-request-btn">
+              Create Request
+            </button>
+          </div>
         </div>
         <img
           src="../img/scroll-down-icon.svg"
@@ -34,10 +40,67 @@
           class="scroll-down"
         >
       </div>
+
+      <div class="hero-mobile-form-pop-up hidden">
+        <div class="mobile-menu-content">
+          <div class="mobile-menu-header">
+            <img src="../img/pop-up-back-arrow.svg" alt="Back arrow" class="pop-up-back-arrow">
+            <img src="../img/pop-up-close-icon.svg" alt="Close icon" class="pop-up-close-icon">
+          </div>
+          <div class="mobile-form" style="display: none;">
+            <div class="menu-pop-up-close-block">
+              <span>Create Request</span>
+            </div>
+            <div class="pop-up-info-block">
+              <img src="../img/pop-up-info-block-letter.png" alt="pop-up-info-block-letter">
+              <div>
+                <span class="pop-up-info-block-title">Would you like to become our client?</span>
+                <span class="pop-up-info-block-text">
+                  Leave a request and our team of marketing experts will contact you
+                  to discuss strategies to promote your business.
+                </span>
+              </div>
+            </div>
+            <div class="pop-up-contact-form pop-up-contact-form-mobile">
+              <div class="form-input-block">
+                <label class="form-label">Your Full Name</label>
+                <input type="text" class="form-input fullName-mobile" placeholder="Sara Biverman">
+                <span class="error fullNameError"></span>
+              </div>
+              <div class="form-input-block">
+                <label class="form-label">Email</label>
+                <input type="email" id="email" class="form-input email-mobile" placeholder="example@mail.com">
+                <span class="error emailError"></span>
+              </div>
+              <div class="form-input-block">
+                <label class="form-label">Phone</label>
+                <input type="tel" id="phone" class="form-input phone-mobile" placeholder="Type your mobile number">
+                <span class="error phoneError"></span>
+              </div>
+              <div class="form-input-block">
+                <label class="form-label">Your Company</label>
+                <input type="text" id="company" class="form-input" placeholder="Type...">
+              </div>
+              <div class="form-input-block">
+                <label class="form-label">Select Required Services</label>
+                <select class="form-input service-mobile">
+                  <option class="service-option" value="Select Type">Select Type</option>
+                  <option class="service-option" value="Service1">Service 1</option>
+                  <option class="service-option" value="Service2">Service 2</option>
+                </select>
+                <span class="error serviceError"></span>
+              </div>
+              <div class="contact-form-button contact-form-button-mobile" role="button" tabindex="0">
+                <span>Create Request</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
   
       <div class="our-partners">
         <div class="our-partners-content">
-          <div class="h3">OUR PARTNERS</div>
+          <div class="h3">OUR CLIENTS</div>
           <div class="our-partners-logo-block">
             <div class="logo-block-row">
               <img src="../img/soax.png" alt="soax">
@@ -50,6 +113,26 @@
               <img src="../img/mpax.png" alt="mpax">
               <img src="../img/momondo.png" alt="momondo">
               <img src="../img/rakuten.png" alt="rakuten">
+            </div>
+          </div>
+          <div class="our-partners-logo-slider-wrapper">
+            <div class="our-partners-logo-slider">
+              <div class="logo-block-row">
+                <img src="../img/soax.png" alt="soax">
+                <img src="../img/doer.png" alt="doer">
+              </div>
+              <div class="logo-block-row">
+                <img src="../img/sumatosoft.png" alt="sumatosoft">
+                <img src="../img/capital-group.png" alt="capital-group">
+              </div>
+              <div class="logo-block-row">
+                <img src="../img/ant-development.png" alt="ant-development">
+                <img src="../img/mpax.png" alt="mpax">
+              </div>
+              <div class="logo-block-row">
+                <img src="../img/momondo.png" alt="momondo">
+                <img src="../img/rakuten.png" alt="rakuten">
+              </div>
             </div>
           </div>
         </div>
@@ -180,7 +263,7 @@
 
 
     <script type="module" src="../js/main.js"></script>
-    <script type="module" src="../js/home.js"></script>
+    <script type="module" src="../js/home.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   </body>

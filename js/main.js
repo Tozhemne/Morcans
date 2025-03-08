@@ -25,7 +25,6 @@ function setupNavigation(navItems, isMobile) {
       e.preventDefault();
       const targetClass = sectionMap[item.textContent.trim()];
       const target = document.querySelector(targetClass);
-      console.log('target', target);
 
       if (target) {
         const headerHeight = 30;
@@ -113,17 +112,8 @@ const handleFormSubmission = (formContainer, overlayElement) => {
     overlayElement.classList.add('hidden');
     manageBodyScroll(overlayElement, 'enable');
 
-    const mobileMenuHeader = document.querySelector('.mobile-menu-header');
-    const mobileMenuContent = document.querySelector('.mobile-menu-content');
-    const requestMenu = document.querySelector('.pop-up-mobile-btn');
-
     overlayElement.style.backgroundColor = 'rgba(20, 20, 22, 0.56)';
     overlayElement.style.padding = '24px 24px 36px';
-    mobileMenuHeader.style.backgroundColor = 'unset';
-    mobileMenuHeader.style.padding = 'unset';
-    mobileMenuHeader.style.borderRadius = 'unset';
-    mobileMenuContent.style.gap = '40px';
-    requestMenu.style.display = 'flex';
 
     $('.mobile-form').fadeOut(300, () => {
       $('.mobile-menu-info').fadeIn(300);
@@ -149,17 +139,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // DOM element constants
   const formContainer = document.querySelector('.pop-up-contact-form');
-  const formContainerMobile = document.querySelector('.pop-up-contact-form-mobile');
   const contactFormButton = document.querySelector('.contact-form-button');
-  const contactFormButtonMobile = document.querySelector('.contact-form-button-mobile');
   const menuPopUp = document.getElementById('menu-pop-up');
   const createRequestBtn = document.querySelector('.create-request-btn');
   const closeIcon = document.querySelector('.desktop-pop-up-close-icon');
   const isMobile = window.innerWidth <= 767;
   const mobileOverlay = document.querySelector('.mobile-menu-pop-up');
-  const mobileMenuHeader = document.querySelector('.mobile-menu-header');
-  const mobileMenuContent = document.querySelector('.mobile-menu-content');
-  const requestMenu = document.querySelector('.pop-up-mobile-btn');
   const hamburgerBtn = document.getElementById('hamburger-button');
   const backArrow = document.querySelector('.pop-up-back-arrow');
   const mobileCloseIcon = document.querySelector('.pop-up-close-icon');
@@ -170,8 +155,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   restrictToDigits(document.querySelector('.phone-mobile'), 10);
 
   attachButtonListeners(contactFormButton, formContainer, menuPopUp);
-  attachButtonListeners(contactFormButtonMobile, formContainerMobile, mobileOverlay);
-
+  
   if (closeIcon) {
     closeIcon.addEventListener('click', () => {
       menuPopUp.classList.add('hidden');
@@ -186,20 +170,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       manageBodyScroll(menuPopUp, isHidden ? 'enable' : 'disable');
     });
 
-    if (isMobile && requestMenu) {
-      requestMenu.addEventListener('click', () => {
-        $('.mobile-menu-info').fadeOut(300, () => {
-          $('.mobile-form').fadeIn(300);
-        });
-        mobileOverlay.style.backgroundColor = '#FFFFFF';
-        mobileOverlay.style.padding = '24px 16px 36px';
-        mobileMenuHeader.style.backgroundColor = 'rgba(20, 20, 22, 0.56)';
-        mobileMenuHeader.style.padding = '6px 12px';
-        mobileMenuHeader.style.borderRadius = '12px';
-        mobileMenuContent.style.gap = '16px';
-        requestMenu.style.display = 'none';
-      });
-    } else {
+    if (!isMobile) {
       menuPopUp.addEventListener('click', (e) => {
         if (e.target === menuPopUp) {
           menuPopUp.classList.add('hidden');
@@ -224,13 +195,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (backArrow) {
       backArrow.addEventListener('click', () => {
         if ($('.mobile-form').is(':visible')) {
-          mobileOverlay.style.backgroundColor = 'rgba(20, 20, 22, 0.56)';
-          mobileOverlay.style.padding = '24px 24px 36px';
-          mobileMenuHeader.style.backgroundColor = 'unset';
-          mobileMenuHeader.style.padding = 'unset';
-          mobileMenuHeader.style.borderRadius = 'unset';
-          mobileMenuContent.style.gap = '40px';
-          requestMenu.style.display = 'flex';
           $('.mobile-form').fadeOut(300, () => {
             $('.mobile-menu-info').fadeIn(300);
           });
@@ -242,20 +206,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     if (mobileCloseIcon) {
       mobileCloseIcon.addEventListener('click', () => {
-        if ($('.mobile-form').is(':visible')) {
-          mobileOverlay.style.backgroundColor = 'rgba(20, 20, 22, 0.56)';
-          mobileOverlay.style.padding = '24px 24px 36px';
-          mobileMenuHeader.style.backgroundColor = 'unset';
-          mobileMenuHeader.style.padding = 'unset';
-          mobileMenuHeader.style.borderRadius = 'unset';
-          mobileMenuContent.style.gap = '40px';
-          requestMenu.style.display = 'flex';
-          $('.mobile-form').fadeOut(300, () => {
-            $('.mobile-menu-info').fadeIn(300);
-          });
-        } else {
-          manageBodyScroll(mobileOverlay, 'enable');
-        }
+        mobileOverlay.classList.add('hidden');
+        manageBodyScroll(mobileOverlay, 'enable');
       });
     }
   }
