@@ -960,7 +960,7 @@ p {
     pointer-events: auto;
   }
 
-  .mobile-menu-content {
+  .hero-mobile-menu-content {
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -971,7 +971,7 @@ p {
     justify-content: center;
   }
 
-  .mobile-menu-header {
+  .hero-mobile-menu-header {
     display: flex;
     width: 100%;
     justify-content: space-between;
