@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
   const sidebar = document.querySelector('.sidebar-container');
-  const content = document.querySelector('.content-container');
+  const contentArea = document.querySelector('.content-area');
   const container = document.querySelector('.container');
   
   // Content switching functionality
@@ -90,10 +90,10 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   
   // Sticky sidebar functionality
-  if (!sidebar || !content || !container) return;
+  if (!sidebar || !contentArea || !container) return;
   
   let sidebarHeight = sidebar.offsetHeight;
-  let contentHeight = content.offsetHeight;
+  let contentHeight = contentArea.offsetHeight;
   let containerTop = container.offsetTop;
   let stopPosition = containerTop + contentHeight - sidebarHeight;
   
@@ -106,10 +106,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     const scrollY = window.scrollY || window.pageYOffset;
-    const windowHeight = window.innerHeight;
     
     sidebarHeight = sidebar.offsetHeight;
-    contentHeight = content.offsetHeight;
+    contentHeight = contentArea.offsetHeight;
     containerTop = container.getBoundingClientRect().top + scrollY;
     stopPosition = containerTop + contentHeight - sidebarHeight;
     
