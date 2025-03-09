@@ -1,0 +1,252 @@
+.h3 {
+  font-family: Ilisarniq, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #FFFFFF;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 48px;
+  padding: 180px 0 160px;
+  max-width: 1290px;
+  margin: 0 auto;
+  position: relative;
+  min-height: 100vh;
+}
+
+.sidebar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  max-width: 200px;
+  position: sticky;
+  top: 100px;
+  align-self: flex-start;
+  max-height: calc(100vh - 200px);
+}
+
+.sidebar-container-item {
+  display: flex;
+  padding: 8px 12px 10px;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.sidebar-container-item:hover span {
+  color: #CCA24B;
+}
+
+.sidebar-container-item span {
+  font-family: Ilisarniq, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #727272;
+  transition: color 0.2s ease-in-out;
+}
+
+.sidebar-container-item.active {
+  background-color: #2B2B2B;
+}
+
+.sidebar-container-item.active span {
+  color: #CCA24B !important;
+}
+
+.content-container {
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding-left: 100px;
+  gap: 48px;
+  border-left: 1px solid #343434;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.content-container h1 {
+  font-family: Ilisarniq, sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 36px;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+}
+
+.content-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 16px;
+}
+
+.content span {
+  font-family: Ilisarniq, sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+  color: #FFFFFF;
+}
+
+.content a {
+  font-family: Ilisarniq, sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+  color: #CCA24B;
+  text-decoration: underline;
+}
+
+.content b {
+  font-weight: 500;
+}
+
+@media (max-width: 1439px) and (min-width: 1280px) {
+  .container {
+    gap: 24px;
+    padding: 120px 16px 80px;
+  }
+
+  .content-container {
+    padding-left: 35px;
+    gap: 32px;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+}
+
+@media (max-width: 1279px) and (min-width: 1024px) {
+  .container {
+    gap: 24px;
+    padding: 120px 16px 80px;
+  }
+
+  .sidebar-container {
+    max-width: 150px;
+  }
+
+  .content-container {
+    padding-left: 35px;
+    gap: 32px;
+    max-width: 800px;
+    width: 100%;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .content-item {
+    gap: 12px;
+  }
+
+  .content span {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+
+@media (max-width: 1023px) and (min-width: 768px) {
+  .container {
+    gap: 24px;
+    padding: 120px 16px 80px;
+  }
+
+  .sidebar-container {
+    max-width: 150px;
+  }
+
+  .content-container {
+    padding-left: 35px;
+    gap: 32px;
+    max-width: 700px;
+    width: 100%;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .content-item {
+    gap: 12px;
+  }
+
+  .content span {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    flex-direction: column;
+    padding: 120px 16px 80px;
+  }
+  
+  .sidebar-container {
+    position: relative;
+    top: 0;
+    max-width: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  
+  .sidebar-container-item {
+    width: auto;
+  }
+  
+  .content-container {
+    padding-left: 0;
+    border-left: none;
+    border-top: 1px solid #343434;
+    padding-top: 40px;
+    gap: 24px;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .content-item {
+    gap: 12px;
+  }
+
+  .content span {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}

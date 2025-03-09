@@ -6,48 +6,86 @@ async function loadComponent(targetId, componentPath) {
     const response = await fetch(componentPath);
     const html = await response.text();
     document.getElementById(targetId).innerHTML = html;
+    
+    // After loading components, set up navigation handlers
+    if (targetId === 'header') {
+      setupHeaderNavigation();
+    }
   } catch (error) {
     console.log('Error loading component:', error);
+  }
+}
+
+function setupHeaderNavigation() {
+  // Logo click handler - navigate to home page
+  const logo = document.querySelector('.logo');
+  if (logo) {
+    logo.addEventListener('click', (e) => {
+      // If already on home page, just prevent default
+      if (window.location.pathname.includes('home.html')) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      // Otherwise, default behavior will navigate to home.html
+    });
+  }
+  
+  // Navigation items click handlers
+  const navItems = document.querySelectorAll('nav ul li');
+  navItems.forEach(item => {
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = item.getAttribute('data-target');
+      
+      // If we're already on the home page
+      if (window.location.pathname.includes('home.html')) {
+        scrollToSection(targetId);
+      } else {
+        // Navigate to home page with target section in URL hash
+        window.location.href = `home.html#${targetId}`;
+      }
+    });
+  });
+}
+
+function scrollToSection(targetId) {
+  const targetElement = document.getElementById(targetId);
+  if (targetElement) {
+    const headerHeight = 70; // Adjust based on your header height
+    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+    
+    window.scrollTo({
+      top: targetPosition,
+      behavior: 'smooth'
+    });
   }
 }
 
 function setupNavigation(navItems, isMobile) {
   const mobileOverlay = document.querySelector('.mobile-menu-pop-up');
   const sectionMap = {
-    'Services': '.our-services',
-    'Advantages': '.our-advantages',
-    'Clients': '.our-partners',
-    'Contacts': '.footer'
+    'Services': 'our-services-container',
+    'Advantages': 'our-advantages-container',
+    'Clients': 'our-clients-container',
+    'Contacts': 'footer'
   };
 
   navItems.forEach((item) => {
     item.addEventListener('click', (e) => {
       e.preventDefault();
-      const targetClass = sectionMap[item.textContent.trim()];
-      const target = document.querySelector(targetClass);
-
-      if (target) {
-        const headerHeight = 30;
-
-        if (isMobile && mobileOverlay) {
-          mobileOverlay.classList.add('hidden');
-          manageBodyScroll(mobileOverlay, 'enable');
-          const targetTop = target.offsetTop - headerHeight;
-
-          window.scrollTo({
-            top: targetTop,
-            behavior: 'smooth'
-          });
-        } else {
-          const targetTop = target.offsetTop - headerHeight;
-
-          window.scrollTo({
-            top: targetTop,
-            behavior: 'smooth'
-          });
-        }
+      const targetId = sectionMap[item.textContent.trim()];
+      
+      if (isMobile && mobileOverlay) {
+        mobileOverlay.classList.add('hidden');
+        manageBodyScroll(mobileOverlay, 'enable');
+      }
+      
+      // If we're already on the home page
+      if (window.location.pathname.includes('home.html')) {
+        scrollToSection(targetId);
       } else {
-        console.log(`Target section for ${item.textContent} not found`);
+        // Navigate to home page with target section in URL hash
+        window.location.href = `home.html#${targetId}`;
       }
     });
   });
@@ -137,6 +175,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     loadComponent('footer', '../components/footer.html')
   ]);
 
+  // Check if there's a hash in the URL to scroll to a specific section
+  if (window.location.hash && window.location.pathname.includes('home.html')) {
+    const targetId = window.location.hash.substring(1);
+    setTimeout(() => {
+      scrollToSection(targetId);
+    }, 500); // Small delay to ensure DOM is fully loaded
+  }
+
   // DOM element constants
   const formContainer = document.querySelector('.pop-up-contact-form');
   const contactFormButton = document.querySelector('.contact-form-button');
@@ -149,10 +195,16 @@ document.addEventListener('DOMContentLoaded', async () => {
   const backArrow = document.querySelector('.pop-up-back-arrow');
   const mobileCloseIcon = document.querySelector('.pop-up-close-icon');
 
-  restrictToLettersAndSpaces(document.querySelector('.fullName'));
-  restrictToDigits(document.querySelector('.phone'), 10);
-  restrictToLettersAndSpaces(document.querySelector('.fullName-mobile'));
-  restrictToDigits(document.querySelector('.phone-mobile'), 10);
+  // Only add event listeners to form elements if they exist
+  const fullNameInput = document.querySelector('.fullName');
+  const phoneInput = document.querySelector('.phone');
+  const fullNameMobileInput = document.querySelector('.fullName-mobile');
+  const phoneMobileInput = document.querySelector('.phone-mobile');
+  
+  if (fullNameInput) restrictToLettersAndSpaces(fullNameInput);
+  if (phoneInput) restrictToDigits(phoneInput, 10);
+  if (fullNameMobileInput) restrictToLettersAndSpaces(fullNameMobileInput);
+  if (phoneMobileInput) restrictToDigits(phoneMobileInput, 10);
 
   attachButtonListeners(contactFormButton, formContainer, menuPopUp);
   

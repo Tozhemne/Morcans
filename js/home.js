@@ -41,6 +41,26 @@ function initOurPartnersSlider() {
   }
 }
 
+// Function to handle scrolling to sections from URL hash
+function handleHashNavigation() {
+  if (window.location.hash) {
+    const targetId = window.location.hash.substring(1);
+    const targetElement = document.getElementById(targetId);
+    
+    if (targetElement) {
+      setTimeout(() => {
+        const headerHeight = 70; // Adjust based on your header height
+        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+        
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }, 500); // Small delay to ensure DOM is fully loaded
+    }
+  }
+}
+
 function validateForm(formContainer) {
   const name = formContainer.querySelector('.fullName-mobile')?.value || '';
   const email = formContainer.querySelector('.email-mobile')?.value || '';
@@ -115,6 +135,7 @@ const attachButtonListeners = (button, formContainer, overlayElement) => {
 document.addEventListener('DOMContentLoaded', () => {
   renderServices(servicesData, 'our-services-container');
   initOurPartnersSlider();
+  handleHashNavigation(); // Handle navigation from URL hash
 
   const scrollDownIcon = document.querySelector('.scroll-down');
   const targetSection = document.querySelector('.our-partners');

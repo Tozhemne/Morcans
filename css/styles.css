@@ -50,6 +50,7 @@ header {
   line-height: 28.8px;
   color: #FFFFFF;
   letter-spacing: 2px;
+  text-decoration: none;
 }
 
 nav ul {
@@ -361,6 +362,7 @@ nav li {
   line-height: 24px;
   color: #727272;
   text-decoration: none;
+  cursor: pointer;
 }
 
 @media (max-width: 1439px) and (min-width: 1280px) {
