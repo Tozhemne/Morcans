@@ -2,7 +2,7 @@
 $formClass = isset($formClass) ? htmlspecialchars($formClass) : 'pop-up-contact-form';
 ?>
 
-<form action="send.php" method="post" class="<?= $formClass ?>">
+<form action="components/send.php" method="post" class="<?= $formClass ?>">
   <div class="form-input-block">
     <label class="form-label">Your Full Name</label>
     <input

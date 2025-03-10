@@ -38,12 +38,10 @@ function setupHeaderNavigation() {
   const logo = document.querySelector('.logo');
   if (logo) {
     logo.addEventListener('click', (e) => {
-      // If already on home page, just prevent default
-      if (window.location.pathname.includes('home.html')) {
+      if (window.location.pathname === '/') {
         e.preventDefault();
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
-      // Otherwise, default behavior will navigate to home.html
     });
   }
 
@@ -55,11 +53,11 @@ function setupHeaderNavigation() {
       const targetId = item.getAttribute('data-target');
 
       // If we're already on the home page
-      if (window.location.pathname.includes('home.html')) {
+      if (window.location.pathname === '/') {
         scrollToSection(targetId);
       } else {
         // Navigate to home page with target section in URL hash
-        window.location.href = `home.html#${targetId}`;
+        window.location.href = `/#${targetId}`;
       }
     });
   });
@@ -101,11 +99,11 @@ function setupNavigation(navItems, isMobile) {
       }
 
       // If we're already on the home page
-      if (window.location.pathname.includes('home.html')) {
+      if (window.location.pathname === '/') {
         scrollToSection(targetId);
       } else {
         // Navigate to home page with target section in URL hash
-        window.location.href = `home.html#${targetId}`;
+        window.location.href = `/#${targetId}`;
       }
     });
   });
@@ -216,7 +214,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   ]);
 
   // Check if there's a hash in the URL to scroll to a specific section
-  if (window.location.hash && window.location.pathname.includes('home.html')) {
+  if (window.location.hash && window.location.pathname.includes('/')) {
     const targetId = window.location.hash.substring(1);
     setTimeout(() => {
       scrollToSection(targetId);

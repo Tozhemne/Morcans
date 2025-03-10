@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (mail($to, $subject, $message, $headers)) {
         
 
-        header("Location: index.php");
+        header("Location: /");
         exit;
     } else {
         print_r("Ошибка: письмо не отправлено.");
