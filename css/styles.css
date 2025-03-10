@@ -26,13 +26,17 @@ header {
   left: 0;
   width: 100%;
   padding: 20px 20px;
-  background-color: rgba(20, 20, 22, 0.32);
-  backdrop-filter: blur(48px);
-  -webkit-backdrop-filter: blur(48px); /* Safari */
-  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.5);
+  background-color: transparent;
+  box-shadow: none;
+  transition: 0.2s;
+}
+header.fixed {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   border-bottom-left-radius: 32px;
   border-bottom-right-radius: 32px;
+  backdrop-filter: blur(48px);
+  -webkit-backdrop-filter: blur(48px); /* Safari */
+  background-color: rgba(20, 20, 22, 0.32);
 }
 
 .header-container {
@@ -48,7 +52,7 @@ header {
   font-weight: 900;
   font-size: 24px;
   line-height: 28.8px;
-  color: #FFFFFF;
+  color: #ffffff;
   letter-spacing: 2px;
   text-decoration: none;
 }
@@ -66,13 +70,13 @@ nav li {
   font-weight: 300;
   font-size: 14px;
   line-height: 20px;
-  color: #FFFFFF;
+  color: #ffffff;
   margin: 0;
   cursor: pointer;
 }
 
 .create-request-btn {
-  background-color: #CCA24B;
+  background-color: #cca24b;
   width: 153px;
   height: 42px;
   padding: 10px 24px;
@@ -80,7 +84,7 @@ nav li {
   font-weight: 500;
   font-size: 14px;
   line-height: 20px;
-  color: #FFFFFF;
+  color: #ffffff;
   border: none;
   cursor: pointer;
 }
@@ -96,7 +100,7 @@ nav li {
   width: 100%;
   height: 100%;
   backdrop-filter: blur(6px);
-  background-color: #252525CC;
+  background-color: #252525cc;
   z-index: 9999;
 }
 
@@ -107,7 +111,7 @@ nav li {
   width: 27%;
   padding-bottom: 124px;
   gap: 36px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   backdrop-filter: blur(48px);
   position: absolute;
   right: 0%;
@@ -122,7 +126,7 @@ nav li {
   align-items: center;
   justify-content: space-between;
   padding: 16px 24px;
-  border-bottom: 1px solid #EEEEEE;
+  border-bottom: 1px solid #eeeeee;
 }
 
 .menu-pop-up-close-block span {
@@ -130,7 +134,7 @@ nav li {
   font-weight: 700;
   font-size: 18px;
   line-height: 28px;
-  color: #1E1E1E;
+  color: #1e1e1e;
 }
 
 .desktop-pop-up-close-icon {
@@ -164,7 +168,7 @@ nav li {
   font-weight: 700;
   font-size: 18px;
   line-height: 28px;
-  color: #1E1E1E;
+  color: #1e1e1e;
 }
 
 .pop-up-info-block-text {
@@ -172,7 +176,7 @@ nav li {
   font-weight: 300;
   font-size: 14px;
   line-height: 20px;
-  color: #4C4C4C;
+  color: #4c4c4c;
 }
 
 .pop-up-contact-form {
@@ -203,8 +207,8 @@ nav li {
   font-weight: 300;
   font-size: 18px;
   line-height: 28px;
-  color: #1E1E1E; 
-  border: 1px solid #EEEEEE;
+  color: #1e1e1e;
+  border: 1px solid #eeeeee;
   height: 45px;
   width: 100%;
   padding: 10px;
@@ -215,12 +219,13 @@ nav li {
   -moz-appearance: none;
   appearance: none;
   padding-right: 36px;
-  background: #fff url('../img/select-type-form-input-icon.svg') no-repeat right 12px center;
+  background: #fff url('../img/select-type-form-input-icon.svg') no-repeat right
+    12px center;
   background-size: auto 16px;
 }
 
 .form-input::placeholder {
-  color: #B8B8B8;
+  color: #b8b8b8;
 }
 
 .contact-form-block {
@@ -230,10 +235,11 @@ nav li {
 .contact-form-button {
   width: 100%;
   height: 42px;
-  background-color: #CCA24B;
+  background-color: #cca24b;
   text-align: center;
   padding: 12px 24px;
   cursor: pointer;
+  border: none;
 }
 
 .contact-form-button span {
@@ -241,7 +247,7 @@ nav li {
   font-weight: 500;
   font-size: 14px;
   line-height: 20px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .error {
@@ -266,8 +272,8 @@ nav li {
 .footer {
   display: flex;
   flex-direction: column;
-  position: relative; 
-  background-color: #2B2B2B;
+  position: relative;
+  background-color: #2b2b2b;
   width: 100%;
   align-items: center;
   justify-content: center;
@@ -319,7 +325,7 @@ nav li {
   font-weight: 300;
   font-size: 16px;
   line-height: 24px;
-  color: #FFFFFF;
+  color: #ffffff;
   text-decoration: underline;
 }
 
@@ -496,7 +502,7 @@ nav li {
     align-items: center;
     display: flex;
   }
-  
+
   .header-container {
     display: flex;
     width: 100%;
@@ -529,7 +535,7 @@ nav li {
   .hamburger-menu-line {
     width: 100%;
     height: 2px;
-    background-color: #CCA24B;
+    background-color: #cca24b;
     border-radius: 3px;
   }
 
@@ -545,8 +551,7 @@ nav li {
     height: 100%;
     background-color: rgba(20, 20, 22, 0.56);
     backdrop-filter: blur(48px);
-    box-shadow: 
-      inset 0px 0px 68px rgba(0, 0, 0, 0.05),
+    box-shadow: inset 0px 0px 68px rgba(0, 0, 0, 0.05),
       inset 0px 4px 4px rgba(0, 0, 0, 0.05);
     padding: 24px 24px 36px;
     z-index: 9999;
@@ -555,7 +560,7 @@ nav li {
     transition: opacity 0.5s ease;
     overflow: auto;
   }
-  
+
   .mobile-menu-pop-up.open {
     opacity: 1;
     pointer-events: auto;
@@ -578,7 +583,8 @@ nav li {
     justify-content: space-between;
   }
 
-  .pop-up-back-arrow, .pop-up-close-icon {
+  .pop-up-back-arrow,
+  .pop-up-close-icon {
     cursor: pointer;
   }
 
@@ -604,7 +610,7 @@ nav li {
   }
 
   .mobile-menu-info span:hover {
-    color: #CCA24B;
+    color: #cca24b;
   }
 
   .pop-up-mobile-btn {
@@ -634,7 +640,7 @@ nav li {
     font-size: 12px;
     line-height: 17px;
   }
-  
+
   .footer-page-links {
     padding: 32px 16px;
   }

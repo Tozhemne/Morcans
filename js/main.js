@@ -1,12 +1,29 @@
 import { manageBodyScroll } from '../utils/body-scroll.js';
-import { validateName, validateEmail, validatePhone, validateServiceSelection } from '../utils/validation.js';
+import {
+  validateName,
+  validateEmail,
+  validatePhone,
+  validateServiceSelection,
+} from '../utils/validation.js';
+
+function toggleHeaderClass() {
+  const header = document.querySelector('header');
+
+  if (window.scrollY > 10) {
+    header.classList.add('fixed');
+  } else {
+    header.classList.remove('fixed');
+  }
+}
+
+window.addEventListener('scroll', toggleHeaderClass);
 
 async function loadComponent(targetId, componentPath) {
   try {
     const response = await fetch(componentPath);
     const html = await response.text();
     document.getElementById(targetId).innerHTML = html;
-    
+
     // After loading components, set up navigation handlers
     if (targetId === 'header') {
       setupHeaderNavigation();
@@ -29,14 +46,14 @@ function setupHeaderNavigation() {
       // Otherwise, default behavior will navigate to home.html
     });
   }
-  
+
   // Navigation items click handlers
   const navItems = document.querySelectorAll('nav ul li');
-  navItems.forEach(item => {
+  navItems.forEach((item) => {
     item.addEventListener('click', (e) => {
       e.preventDefault();
       const targetId = item.getAttribute('data-target');
-      
+
       // If we're already on the home page
       if (window.location.pathname.includes('home.html')) {
         scrollToSection(targetId);
@@ -52,11 +69,14 @@ function scrollToSection(targetId) {
   const targetElement = document.getElementById(targetId);
   if (targetElement) {
     const headerHeight = 70; // Adjust based on your header height
-    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-    
+    const targetPosition =
+      targetElement.getBoundingClientRect().top +
+      window.pageYOffset -
+      headerHeight;
+
     window.scrollTo({
       top: targetPosition,
-      behavior: 'smooth'
+      behavior: 'smooth',
     });
   }
 }
@@ -64,22 +84,22 @@ function scrollToSection(targetId) {
 function setupNavigation(navItems, isMobile) {
   const mobileOverlay = document.querySelector('.mobile-menu-pop-up');
   const sectionMap = {
-    'Services': 'our-services-container',
-    'Advantages': 'our-advantages-container',
-    'Clients': 'our-clients-container',
-    'Contacts': 'footer'
+    Services: 'our-services-container',
+    Advantages: 'our-advantages-container',
+    Clients: 'our-clients-container',
+    Contacts: 'footer',
   };
 
   navItems.forEach((item) => {
     item.addEventListener('click', (e) => {
       e.preventDefault();
       const targetId = sectionMap[item.textContent.trim()];
-      
+
       if (isMobile && mobileOverlay) {
         mobileOverlay.classList.add('hidden');
         manageBodyScroll(mobileOverlay, 'enable');
       }
-      
+
       // If we're already on the home page
       if (window.location.pathname.includes('home.html')) {
         scrollToSection(targetId);
@@ -93,12 +113,20 @@ function setupNavigation(navItems, isMobile) {
 
 function validateForm(formContainer) {
   const isMobile = window.innerWidth <= 767;
-  const name = formContainer.querySelector(isMobile ? '.fullName-mobile' : '.fullName')?.value || '';
-  const email = formContainer.querySelector(isMobile ? '.email-mobile' : '.email')?.value || '';
-  const phone = formContainer.querySelector(isMobile ? '.phone-mobile' : '.phone')?.value || '';
-  const service = formContainer.querySelector(isMobile ? '.service-mobile' : '.service')?.value || '';
+  const name =
+    formContainer.querySelector(isMobile ? '.fullName-mobile' : '.fullName')
+      ?.value || '';
+  const email =
+    formContainer.querySelector(isMobile ? '.email-mobile' : '.email')?.value ||
+    '';
+  const phone =
+    formContainer.querySelector(isMobile ? '.phone-mobile' : '.phone')?.value ||
+    '';
+  const service =
+    formContainer.querySelector(isMobile ? '.service-mobile' : '.service')
+      ?.value || '';
 
-  formContainer.querySelectorAll('.error').forEach(error => {
+  formContainer.querySelectorAll('.error').forEach((error) => {
     error.textContent = '';
     error.style.display = 'none';
   });
@@ -119,7 +147,8 @@ function validateForm(formContainer) {
   }
   if (!validatePhone(phone)) {
     const errorElement = formContainer.querySelector('.phoneError');
-    errorElement.textContent = 'Please enter a valid phone number (at least 10 digits).';
+    errorElement.textContent =
+      'Please enter a valid phone number (at least 10 digits).';
     errorElement.style.display = 'block';
     isValid = false;
   }
@@ -151,8 +180,8 @@ const handleFormSubmission = (formContainer, overlayElement) => {
     manageBodyScroll(overlayElement, 'enable');
 
     const mobileMenuHeader = document.querySelector('.mobile-menu-header');
-     const mobileMenuContent = document.querySelector('.mobile-menu-content');
-     const requestMenu = document.querySelector('.pop-up-mobile-btn');
+    const mobileMenuContent = document.querySelector('.mobile-menu-content');
+    const requestMenu = document.querySelector('.pop-up-mobile-btn');
 
     overlayElement.style.backgroundColor = 'rgba(20, 20, 22, 0.56)';
     overlayElement.style.padding = '24px 24px 36px';
@@ -169,7 +198,9 @@ const handleFormSubmission = (formContainer, overlayElement) => {
 };
 
 const attachButtonListeners = (button, formContainer, overlayElement) => {
-  button.addEventListener('click', () => handleFormSubmission(formContainer, overlayElement));
+  button.addEventListener('click', () =>
+    handleFormSubmission(formContainer, overlayElement)
+  );
   button.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
@@ -181,7 +212,7 @@ const attachButtonListeners = (button, formContainer, overlayElement) => {
 document.addEventListener('DOMContentLoaded', async () => {
   await Promise.all([
     loadComponent('header', '../components/header.html'),
-    loadComponent('footer', '../components/footer.html')
+    loadComponent('footer', '../components/footer.html'),
   ]);
 
   // Check if there's a hash in the URL to scroll to a specific section
@@ -194,9 +225,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // DOM element constants
   const formContainer = document.querySelector('.pop-up-contact-form');
-  const formContainerMobile = document.querySelector('.pop-up-contact-form-mobile');
+  const formContainerMobile = document.querySelector(
+    '.pop-up-contact-form-mobile'
+  );
   const contactFormButton = document.querySelector('.contact-form-button');
-  const contactFormButtonMobile = document.querySelector('.contact-form-button-mobile');
+  const contactFormButtonMobile = document.querySelector(
+    '.contact-form-button-mobile'
+  );
   const menuPopUp = document.getElementById('menu-pop-up');
   const createRequestBtn = document.querySelector('.create-request-btn');
   const closeIcon = document.querySelector('.desktop-pop-up-close-icon');
@@ -214,14 +249,18 @@ document.addEventListener('DOMContentLoaded', async () => {
   const phoneInput = document.querySelector('.phone');
   const fullNameMobileInput = document.querySelector('.fullName-mobile');
   const phoneMobileInput = document.querySelector('.phone-mobile');
-  
+
   if (fullNameInput) restrictToLettersAndSpaces(fullNameInput);
   if (phoneInput) restrictToDigits(phoneInput, 10);
   if (fullNameMobileInput) restrictToLettersAndSpaces(fullNameMobileInput);
   if (phoneMobileInput) restrictToDigits(phoneMobileInput, 10);
 
   attachButtonListeners(contactFormButton, formContainer, menuPopUp);
-  attachButtonListeners(contactFormButtonMobile, formContainerMobile, mobileOverlay);
+  attachButtonListeners(
+    contactFormButtonMobile,
+    formContainerMobile,
+    mobileOverlay
+  );
 
   if (closeIcon) {
     closeIcon.addEventListener('click', () => {
