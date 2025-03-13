@@ -7,8 +7,43 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Ilisarniq', sans-serif;
-  background-color: #222227;
+  font-family: 'Ilisarniq-Light', sans-serif;
+  background-color: #252525;
+}
+
+@font-face {
+  font-family: 'Ilisarniq-Light';
+  src: url('../fonts/Ilisarniq-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Ilisarniq-Regular';
+  src: url('../fonts/Ilisarniq-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Ilisarniq-Demi';
+  src: url('../fonts/Ilisarniq-Demi.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Ilisarniq-Bold';
+  src: url('../fonts/Ilisarniq-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Ilisarniq-Black';
+  src: url('../fonts/Ilisarniq-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
 }
 
 .body-no-scroll {
@@ -29,11 +64,10 @@ header {
   background-color: transparent;
   box-shadow: none;
   transition: 0.2s;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 header.fixed {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  border-bottom-left-radius: 32px;
-  border-bottom-right-radius: 32px;
   backdrop-filter: blur(48px);
   -webkit-backdrop-filter: blur(48px); /* Safari */
   background-color: rgba(20, 20, 22, 0.32);
@@ -47,14 +81,8 @@ header.fixed {
   margin: 0 auto;
 }
 
-.logo {
-  font-family: 'Ilisarniq', sans-serif;
-  font-weight: 900;
-  font-size: 24px;
-  line-height: 28.8px;
-  color: #ffffff;
-  letter-spacing: 2px;
-  text-decoration: none;
+.logo-img {
+  height: 64px;
 }
 
 nav ul {
@@ -66,7 +94,7 @@ nav ul {
 }
 
 nav li {
-  font-family: 'Ilisarniq', sans-serif;
+  font-family: 'Ilisarniq-Light', sans-serif;
   font-weight: 300;
   font-size: 14px;
   line-height: 20px;
@@ -80,7 +108,7 @@ nav li {
   width: 153px;
   height: 42px;
   padding: 10px 24px;
-  font-family: 'Ilisarniq', sans-serif;
+  font-family: 'Ilisarniq-Demi', sans-serif;
   font-weight: 500;
   font-size: 14px;
   line-height: 20px;
@@ -107,10 +135,11 @@ nav li {
 .menu-pop-up-content {
   display: flex;
   flex-direction: column;
-  height: 100%;
-  width: 27%;
-  padding-bottom: 124px;
-  gap: 36px;
+  height: 100vh;
+  width: 36%;
+  max-width: 520px;
+  justify-content: flex-start;
+  gap: 32px;
   background-color: #ffffff;
   backdrop-filter: blur(48px);
   position: absolute;
@@ -130,7 +159,7 @@ nav li {
 }
 
 .menu-pop-up-close-block span {
-  font-family: 'Ilisarniq', sans-serif;
+  font-family: 'Ilisarniq-Bold', sans-serif;
   font-weight: 700;
   font-size: 18px;
   line-height: 28px;
@@ -152,7 +181,8 @@ nav li {
 }
 
 .pop-up-info-block img {
-  height: 124px;
+  height: 64px;
+  width: 64px;
 }
 
 .pop-up-info-block div {
@@ -164,7 +194,7 @@ nav li {
 }
 
 .pop-up-info-block-title {
-  font-family: 'Ilisarniq', sans-serif;
+  font-family: 'Ilisarniq-Bold', sans-serif;
   font-weight: 700;
   font-size: 18px;
   line-height: 28px;
@@ -172,7 +202,7 @@ nav li {
 }
 
 .pop-up-info-block-text {
-  font-family: 'Ilisarniq', sans-serif;
+  font-family: 'Ilisarniq-Light', sans-serif;
   font-weight: 300;
   font-size: 14px;
   line-height: 20px;
@@ -194,24 +224,24 @@ nav li {
 }
 
 .form-label {
-  font-family: 'Ilisarniq', sans-serif;
+  font-family: 'Ilisarniq-Regular', sans-serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
   color: #252525;
-  margin-bottom: 8px;
+  margin-bottom: 5px;
 }
 
 .form-input {
-  font-family: 'Ilisarniq', sans-serif;
+  font-family: 'Ilisarniq-Light', sans-serif;
   font-weight: 300;
   font-size: 18px;
-  line-height: 28px;
+  line-height: 23px;
   color: #1e1e1e;
   border: 1px solid #eeeeee;
   height: 45px;
   width: 100%;
-  padding: 10px;
+  padding: 10px 12px;
 }
 
 .service {
@@ -240,18 +270,15 @@ nav li {
   padding: 12px 24px;
   cursor: pointer;
   border: none;
-}
-
-.contact-form-button span {
-  font-family: 'Ilisarniq', sans-serif;
+  color: #ffffff;
+  font-family: 'Ilisarniq-Demi', sans-serif;
   font-weight: 500;
   font-size: 14px;
   line-height: 20px;
-  color: #ffffff;
 }
 
 .error {
-  font-family: 'Ilisarniq', sans-serif;
+  font-family: 'Ilisarniq-Regular', sans-serif;
   font-weight: 400;
   font-size: 12px;
   line-height: 17px;
@@ -302,6 +329,16 @@ nav li {
   justify-content: flex-start;
 }
 
+.logo {
+  font-family: 'Ilisarniq-Black', sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 28.8px;
+  color: #ffffff;
+  letter-spacing: 2px;
+  text-decoration: none;
+}
+
 .company-info-item img {
   width: 24px;
   height: 24px;
@@ -313,7 +350,7 @@ nav li {
 }
 
 .info-text-block-title {
-  font-family: 'Ilisarniq', sans-serif;
+  font-family: 'Ilisarniq-Regular', sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
@@ -321,11 +358,11 @@ nav li {
 }
 
 .info-text-block-text {
-  font-family: 'Ilisarniq', sans-serif;
+  font-family: 'Ilisarniq-Light', sans-serif;
   font-weight: 300;
   font-size: 16px;
   line-height: 24px;
-  color: #ffffff;
+  color: #ffffff !important;
   text-decoration: underline;
 }
 
@@ -348,7 +385,7 @@ nav li {
 }
 
 .copyright-info {
-  font-family: 'Ilisarniq', sans-serif;
+  font-family: 'Ilisarniq-Regular', sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
@@ -362,7 +399,7 @@ nav li {
 }
 
 .links-block a {
-  font-family: 'Ilisarniq', sans-serif;
+  font-family: 'Ilisarniq-Light', sans-serif;
   font-weight: 300;
   font-size: 16px;
   line-height: 24px;
@@ -379,7 +416,7 @@ nav li {
 
 @media (max-width: 1279px) and (min-width: 1024px) {
   .menu-pop-up-content {
-    width: 35%;
+    width: 40%;
     gap: 22px;
   }
 
@@ -393,23 +430,20 @@ nav li {
     height: 26px;
   }
 
-  .pop-up-info-block img {
-    height: 94px;
-  }
-
   .pop-up-info-block-title {
     font-size: 17px;
     line-height: 23px;
   }
 
   .pop-up-contact-form {
-    gap: 8px;
+    gap: 12px;
   }
 
   .form-input {
     font-size: 17px;
-    line-height: 19px;
+    line-height: 21px;
     height: 40px;
+    padding: 8px 12px;
   }
 
   .service-option {
@@ -435,6 +469,10 @@ nav li {
 }
 
 @media (max-width: 1023px) and (min-width: 768px) {
+  .logo-img {
+    height: 48px;
+  }
+
   .menu-pop-up-content {
     width: 45%;
     gap: 18px;
@@ -451,7 +489,8 @@ nav li {
   }
 
   .pop-up-info-block img {
-    height: 94px;
+    height: 32px;
+    width: 32px;
   }
 
   .pop-up-info-block-title {
@@ -497,7 +536,7 @@ nav li {
 
 @media (max-width: 767px) {
   header {
-    height: 66px;
+    height: 75px;
     padding: 16px;
     align-items: center;
     display: flex;
@@ -511,9 +550,8 @@ nav li {
     align-items: center;
   }
 
-  .logo {
-    font-size: 22px;
-    line-height: 25px;
+  .logo-img {
+    height: 40px;
   }
 
   nav {
@@ -527,15 +565,15 @@ nav li {
   .hamburger-menu {
     display: flex;
     flex-direction: column;
-    width: 15px;
-    gap: 4px;
+    width: 24px;
+    gap: 5px;
     cursor: pointer;
   }
 
   .hamburger-menu-line {
     width: 100%;
     height: 2px;
-    background-color: #cca24b;
+    background-color: #f7f7f7;
     border-radius: 3px;
   }
 
@@ -574,7 +612,35 @@ nav li {
   }
 
   .menu-pop-up-close-block {
-    justify-content: center;
+    padding: 0;
+    padding-bottom: 25px;
+    border-bottom: none;
+  }
+
+  .pop-up-info-block {
+    gap: 16px;
+    padding: 20px 0;
+    position: relative;
+  }
+  .pop-up-info-block::before {
+    content: '';
+    display: block;
+    height: 1px;
+    width: 100vw;
+    background-color: #eeeeee;
+    position: absolute;
+    top: 0;
+    left: -16px;
+  }
+
+  .pop-up-info-block img {
+    height: 48px;
+    width: 48px;
+  }
+
+  .pop-up-contact-form {
+    gap: 12px;
+    padding: 0;
   }
 
   .mobile-menu-header {
@@ -588,10 +654,8 @@ nav li {
     cursor: pointer;
   }
 
-  .mobile-form {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+  .mobile-form .contact-form-button {
+    margin-top: 20px;
   }
 
   .mobile-menu-info {
@@ -601,7 +665,7 @@ nav li {
   }
 
   .mobile-menu-info span {
-    font-family: 'Ilisarniq', sans-serif;
+    font-family: 'Ilisarniq-Regular', sans-serif;
     font-weight: 400;
     font-size: 20px;
     line-height: 24.8px;
@@ -620,9 +684,9 @@ nav li {
   /* Footer */
 
   .footer-container {
-    padding: 60px 16px;
+    padding: 60px 24px;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: 32px;
   }
 
@@ -636,6 +700,11 @@ nav li {
     line-height: 19px;
   }
 
+  .logo {
+    font-size: 22px;
+    line-height: 25px;
+  }
+
   .info-text-block-text {
     font-size: 12px;
     line-height: 17px;
@@ -645,9 +714,13 @@ nav li {
     padding: 32px 16px;
   }
 
+  .copyright-info {
+    display: none;
+  }
+
   .links-block {
     gap: 12px;
-    flex-direction: column;
+    flex-direction: row;
   }
 
   .links-block a {

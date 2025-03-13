@@ -43,16 +43,17 @@
 
       <div class="hero-mobile-form-pop-up hidden">
         <div class="hero-mobile-menu-content">
-          <div class="hero-mobile-menu-header">
-            <img src="img/pop-up-back-arrow.svg" alt="Back arrow" class="pop-up-back-arrow">
-            <img src="img/pop-up-close-icon.svg" alt="Close icon" class="pop-up-close-icon">
-          </div>
           <div class="mobile-form" style="display: none;">
             <div class="menu-pop-up-close-block">
               <span>Create Request</span>
+              <img
+                src="../img/desktop-pop-up-close-icon.svg"
+                alt="desktop-pop-up-close-icon"
+                class="pop-up-close-icon"
+              />
             </div>
             <div class="pop-up-info-block">
-              <img src="img/pop-up-info-block-letter.png" alt="pop-up-info-block-letter">
+              <img src="img/pop-up-info-block-letter.svg" alt="pop-up-info-block-letter">
               <div>
                 <span class="pop-up-info-block-title">Would you like to become our client?</span>
                 <span class="pop-up-info-block-text">
@@ -74,35 +75,67 @@
           <div class="h3">OUR CLIENTS</div>
           <div class="our-partners-logo-block">
             <div class="logo-block-row">
-              <img src="img/soax.png" alt="soax">
-              <img src="img/doer.png" alt="doer">
-              <img src="img/sumatosoft.png" alt="sumatosoft">
-              <img src="img/capital-group.png" alt="capital-group">
+              <div class="logo-block-row-item">
+                <img src="img/sumatosoft.svg" alt="sumatosoft" class="sumatosoft-img">
+              </div>
+              <div class="logo-block-row-item">
+                <img src="img/momondo.svg" alt="momondo" class="momondo-img">
+              </div>
+              <div class="logo-block-row-item">
+                <img src="img/beehiiv.svg" alt="beehiiv" class="beehiiv-img">
+              </div>
+              <div class="logo-block-row-item">
+                <img src="img/doer.svg" alt="doer" class="doer-img">
+              </div>
             </div>
             <div class="logo-block-row">
-              <img src="img/ant-development.png" alt="ant-development">
-              <img src="img/mpax.png" alt="mpax">
-              <img src="img/momondo.png" alt="momondo">
-              <img src="img/rakuten.png" alt="rakuten">
+              <div class="logo-block-row-item">
+                <img src="img/soax.svg" alt="soax" class="soax-img">
+              </div>
+              <div class="logo-block-row-item">
+                <img src="img/rakuten.svg" alt="rakuten" class="rakuten-img">
+              </div>
+              <div class="logo-block-row-item">
+                <img src="img/mpax.svg" alt="mpax" class="mpax-img">
+              </div>
+              <div class="logo-block-row-item">
+                <img src="img/nextBit.svg" alt="nextbit" class="nextbit-img">
+              </div>
             </div>
           </div>
           <div class="our-partners-logo-slider-wrapper">
             <div class="our-partners-logo-slider">
               <div class="logo-block-row">
-                <img src="img/soax.png" alt="soax">
-                <img src="img/doer.png" alt="doer">
+                <div class="logo-block-row-item">
+                  <img src="img/sumatosoft.svg" alt="sumatosoft" class="sumatosoft-img">
+                </div>
+                <div class="logo-block-row-item">
+                  <img src="img/momondo.svg" alt="momondo" class="momondo-img">
+                </div>
               </div>
               <div class="logo-block-row">
-                <img src="img/sumatosoft.png" alt="sumatosoft">
-                <img src="img/capital-group.png" alt="capital-group">
+                <div class="logo-block-row-item">
+                  <img src="img/beehiiv.svg" alt="beehiiv" class="beehiiv-img">
+                </div>
+                <div class="logo-block-row-item">
+                  <img src="img/doer.svg" alt="doer" class="doer-img">
+                </div>
               </div>
               <div class="logo-block-row">
-                <img src="img/ant-development.png" alt="ant-development">
-                <img src="img/mpax.png" alt="mpax">
+                <div class="logo-block-row-item">
+                  <img src="img/soax.svg" alt="soax" class="soax-img">
+                </div>
+                <div class="logo-block-row-item">
+                  <img src="img/rakuten.svg" alt="rakuten" class="rakuten-img">
+                </div>
               </div>
               <div class="logo-block-row">
-                <img src="img/momondo.png" alt="momondo">
-                <img src="img/rakuten.png" alt="rakuten">
+                <div class="logo-block-row-item">
+                  <img src="img/mpax.svg" alt="mpax" class="mpax-img">
+                </div>
+                <div class="logo-block-row-item">
+                  <img src="img/nextBit.svg" alt="nextbit" class="nextbit-img">
+                </div>
               </div>
             </div>
           </div>
@@ -140,7 +173,7 @@
           </div>
           <div class="soax-info">
             <div class="soax-ceo-quote">
-              <img src="img/soax-logo.png" alt="soax-logo" class="soax-logo-img">
+              <img src="img/soax.svg" alt="soax-logo" class="soax-logo-img">
               <span class="ceo-quote-text">
                 "A company's greatest asset is its people. At Morcans, we work with the finest professionals in their field
                 - individuals who represent the highest standard of expertise we've encountered."

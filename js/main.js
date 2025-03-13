@@ -240,7 +240,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const requestMenu = document.querySelector('.pop-up-mobile-btn');
   const hamburgerBtn = document.getElementById('hamburger-button');
   const backArrow = document.querySelector('.pop-up-back-arrow');
-  const mobileCloseIcon = document.querySelector('.pop-up-close-icon');
+  const mobileCloseIcon = document.querySelectorAll('.pop-up-close-icon');
 
   // Only add event listeners to form elements if they exist
   const fullNameInput = document.querySelector('.fullName');
@@ -276,7 +276,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     if (isMobile && requestMenu) {
       requestMenu.addEventListener('click', () => {
-        $('.mobile-menu-info').fadeOut(300, () => {
+        $('.mobile-menu-info, .mobile-menu-header').fadeOut(300, () => {
           $('.mobile-form').fadeIn(300);
         });
         mobileOverlay.style.backgroundColor = '#FFFFFF';
@@ -331,22 +331,24 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     if (mobileCloseIcon) {
-      mobileCloseIcon.addEventListener('click', () => {
-        if ($('.mobile-form').is(':visible')) {
-          mobileOverlay.style.backgroundColor = 'rgba(20, 20, 22, 0.56)';
-          mobileOverlay.style.padding = '24px 24px 36px';
-          mobileMenuHeader.style.backgroundColor = 'unset';
-          mobileMenuHeader.style.padding = 'unset';
-          mobileMenuHeader.style.borderRadius = 'unset';
-          mobileMenuContent.style.gap = '40px';
-          requestMenu.style.display = 'flex';
-          $('.mobile-form').fadeOut(300, () => {
-            $('.mobile-menu-info').fadeIn(300);
-          });
-        } else {
-          mobileOverlay.classList.add('hidden');
-          manageBodyScroll(mobileOverlay, 'enable');
-        }
+      mobileCloseIcon.forEach((icon) => {
+        icon.addEventListener('click', () => {
+          if ($('.mobile-form').is(':visible')) {
+            mobileOverlay.style.backgroundColor = 'rgba(20, 20, 22, 0.56)';
+            mobileOverlay.style.padding = '24px 24px 36px';
+            mobileMenuHeader.style.backgroundColor = 'unset';
+            mobileMenuHeader.style.padding = 'unset';
+            mobileMenuHeader.style.borderRadius = 'unset';
+            mobileMenuContent.style.gap = '40px';
+            requestMenu.style.display = 'flex';
+            $('.mobile-form').fadeOut(300, () => {
+              $('.mobile-menu-info, .mobile-menu-header').fadeIn(300);
+            });
+          } else {
+            mobileOverlay.classList.add('hidden');
+            manageBodyScroll(mobileOverlay, 'enable');
+          }
+        });
       });
     }
   }

@@ -1,9 +1,9 @@
 .h3 {
-  font-family: Ilisarniq, sans-serif;
+  font-family: 'Ilisarniq-Demi', sans-serif;
   font-weight: 500;
-  font-size: 16px;
-  line-height: 24px;
-  color: #FFFFFF;
+  font-size: 18px;
+  line-height: 23px;
+  color: #ffffff;
 }
 
 .container {
@@ -43,11 +43,11 @@
 }
 
 .sidebar-container-item:hover span {
-  color: #CCA24B;
+  color: #cca24b;
 }
 
 .sidebar-container-item span {
-  font-family: Ilisarniq, sans-serif;
+  font-family: 'Ilisarniq-Regular', sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
@@ -56,11 +56,11 @@
 }
 
 .sidebar-container-item.active {
-  background-color: #2B2B2B;
+  background-color: #2b2b2b;
 }
 
 .sidebar-container-item.active span {
-  color: #CCA24B !important;
+  color: #cca24b !important;
 }
 
 .content-area {
@@ -85,11 +85,11 @@
 }
 
 .content-container h1 {
-  font-family: Ilisarniq, sans-serif;
+  font-family: 'Ilisarniq-Bold', sans-serif;
   font-weight: 700;
   font-size: 24px;
   line-height: 36px;
-  color: #FFFFFF;
+  color: #ffffff;
   margin: 0;
 }
 
@@ -109,23 +109,24 @@
 }
 
 .content span {
-  font-family: Ilisarniq, sans-serif;
+  font-family: 'Ilisarniq-Light', sans-serif;
   font-weight: 300;
   font-size: 16px;
   line-height: 24px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .content a {
-  font-family: Ilisarniq, sans-serif;
+  font-family: 'Ilisarniq-Light', sans-serif;
   font-weight: 300;
   font-size: 16px;
   line-height: 24px;
-  color: #CCA24B;
+  color: #cca24b;
   text-decoration: underline;
 }
 
 .content b {
+  font-family: 'Ilisarniq-Demi', sans-serif;
   font-weight: 500;
 }
 
@@ -146,7 +147,6 @@
     align-items: flex-start;
     gap: 24px;
   }
-
 }
 
 @media (max-width: 1279px) and (min-width: 1024px) {
@@ -222,7 +222,7 @@
     flex-direction: column;
     padding: 120px 16px 80px;
   }
-  
+
   .sidebar-container {
     position: relative;
     top: 0;
@@ -231,7 +231,7 @@
     justify-content: flex-start;
     align-items: flex-start;
   }
-  
+
   .sidebar-container-item {
     width: auto;
   }
@@ -239,7 +239,7 @@
   .content-area {
     border-left: none;
   }
-  
+
   .content-container {
     padding-left: 0;
     border-left: none;
@@ -260,6 +260,11 @@
   }
 
   .content span {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .content a {
     font-size: 14px;
     line-height: 20px;
   }
