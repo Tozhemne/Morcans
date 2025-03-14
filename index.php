@@ -15,7 +15,7 @@
 
   <body>
 
-    <div id="header"></div>
+    <?php include 'components/header.php'; ?>
 
     <main style="width: 100%;">
       <div class="hero">
@@ -30,7 +30,7 @@
           </p>
           <div class="hero-create-request">
             <button class="hero-create-request-btn">
-              Create Request
+              Send Request
             </button>
           </div>
         </div>
@@ -261,7 +261,7 @@
         </div>
       </div>
 
-      <div class="footer" id="footer"></div>
+      <?php include 'components/footer.php'; ?>
 
     </main>
 

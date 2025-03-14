@@ -71,5 +71,5 @@ $formClass = isset($formClass) ? htmlspecialchars($formClass) : 'pop-up-contact-
     <span class="error serviceError"></span>
   </div>
 
-  <button type="submit" class="contact-form-button">Create Request</button>
+  <button type="submit" class="contact-form-button">Send Request</button>
 </form>

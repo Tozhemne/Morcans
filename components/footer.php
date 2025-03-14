@@ -10,7 +10,6 @@
             href="https://www.google.com/maps/search/?api=1&query=Nikou+Georgiou+6,+Nicosia,+Cyprus,+1095"
             target="_blank"
             class="info-text-block-text"
-            style="text-decoration: none"
           >
             Nikou Georgiou 6, Nicosia, Cyprus, 1095
           </a>
@@ -23,7 +22,11 @@
         />
         <div class="company-info-text-block">
           <span class="info-text-block-title">Reg. Number:</span>
-          <span class="info-text-block-text"> ΗΕ 470623 </span>
+          <a
+            href="https://efiling.drcor.mcit.gov.cy/DrcorPublic/SearchResults.aspx?name=MORCANS+DIGITAL+LTD&number=%25&searchtype=optStartMatch&index=1&tname=%25&sc=0"
+            class="info-text-block-text"
+            >ΗΕ 470623</a
+          >
         </div>
       </div>
       <div class="company-info-item">

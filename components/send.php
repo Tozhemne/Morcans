@@ -9,9 +9,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $service  = $_POST['service']  ?? '';
 
 
-    $to      = "work.pastushenko@gmail.com";
+    $to      = "hello@morcans.digital\r\n";
 
-    $subject = "New request from $fullName";
+    $subject = "New request https://morcans.digital from $fullName";
 
     $message = "You have a new request:\n\n"
              . "Full Name: $fullName\n"
@@ -20,12 +20,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
              . "Company: $company\n"
              . "Selected Service: $service\n";
 
-    $headers = "From: no-reply@morcans.digital"; 
+    $headers  = "From: xvz48v0xqcxy@morcans.digital	\r\n";
     $headers .= "Content-type: text/plain; charset=UTF-8\r\n";
 
     if (mail($to, $subject, $message, $headers)) {
         
-
+        print_r("Письмо отправленно");
         header("Location: /");
         exit;
     } else {

@@ -118,7 +118,7 @@
         <span class="error serviceError"></span>
       </div>
 
-      <button type="submit" class="contact-form-button">Create Request</button>
+      <button type="submit" class="contact-form-button">Send Request</button>
     </form>
   </div>
 </div>
@@ -246,7 +246,7 @@
           class="contact-form-button contact-form-button-mobile"
           type="submit"
         >
-          Create Request
+          Send Request
         </button>
       </form>
     </div>

@@ -208,19 +208,6 @@ const attachButtonListeners = (button, formContainer, overlayElement) => {
 };
 
 document.addEventListener('DOMContentLoaded', async () => {
-  await Promise.all([
-    loadComponent('header', '../components/header.html'),
-    loadComponent('footer', '../components/footer.html'),
-  ]);
-
-  // Check if there's a hash in the URL to scroll to a specific section
-  if (window.location.hash && window.location.pathname.includes('/')) {
-    const targetId = window.location.hash.substring(1);
-    setTimeout(() => {
-      scrollToSection(targetId);
-    }, 500); // Small delay to ensure DOM is fully loaded
-  }
-
   // DOM element constants
   const formContainer = document.querySelector('.pop-up-contact-form');
   const formContainerMobile = document.querySelector(
