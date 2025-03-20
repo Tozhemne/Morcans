@@ -17,13 +17,44 @@ p {
 
 .hero {
   height: 100vh;
-  background: url('../img/hero-img.png') no-repeat bottom right;
+  width: 100%;
+  background-color: #252525;
+  background-attachment: fixed;
   position: relative;
-  padding: 0px 110px;
+  padding: 0 110px;
+  display: flex;
   justify-content: center;
   align-items: center;
-  display: flex;
-  background-color: #252525;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.hero-svg {
+  position: absolute;
+  top: 0;
+  left: 9%;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+
+.hero-svg path {
+  stroke: #ffffff;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    stroke: #ffffff;
+  }
+
+  50% {
+    stroke: #CCA24B;
+  }
+
+  100% {
+    stroke: #ffffff;
+  }
 }
 
 .hero-content {
@@ -35,6 +66,14 @@ p {
   text-align: center;
   max-width: 1220px;
   gap: 32px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.hero-content.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .hero-title {
@@ -78,7 +117,7 @@ p {
   position: absolute;
   bottom: 50px;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-36%);
   height: 52px;
   width: 52px;
   cursor: pointer;
@@ -88,11 +127,13 @@ p {
 
 .our-partners {
   position: relative;
-  padding: 120px 100px;
+  z-index: 2;
   background-color: #ffffff;
-  align-items: center;
-  justify-content: center;
+  padding: 120px 100px;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.1s ease-out;
 }
 
 .our-partners-content {
@@ -137,6 +178,14 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.logo-block-row-item.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .sumatosoft-img {
@@ -175,6 +224,7 @@ p {
 
 .morcans-rules {
   position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -479,6 +529,14 @@ p {
   padding: 24px;
   gap: 16px;
   background-color: #2b2b2b;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.advantages-info-item.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .advantages-info-item-title {
@@ -517,9 +575,18 @@ p {
 
   /* Hero section */
 
+  .hero-svg {
+    left: 6%;
+    width: auto;
+  }
+
   .hero-title {
     font-size: 46px;
     line-height: 62px;
+  }
+
+  .scroll-down {
+    transform: translateX(-34%);
   }
 
   /* Our partners section */
@@ -619,6 +686,12 @@ p {
   }
 
   /* Hero section */
+
+  .hero-svg {
+    left: -5%;
+    width: auto;
+  }
+
 
   .hero {
     padding: 0 80px;
@@ -791,6 +864,11 @@ p {
 
   /* Hero section */
 
+  .hero-svg {
+    left: -24%;
+    width: auto;
+  }
+
   .hero {
     padding: 0 32px;
   }
@@ -813,6 +891,7 @@ p {
     bottom: 60px;
     width: 48px;
     height: 48px;
+    transform: translateX(-44%);
   }
 
   /* Our partners section */
@@ -1030,6 +1109,13 @@ p {
     background-color: #252525;
   }
 
+  .hero-svg {
+    /* left: -93%; */
+    /* width: auto; */
+    /* height: 100%; */
+    display: none;
+  }
+
   .hero-content {
     gap: 24px;
   }
@@ -1141,6 +1227,14 @@ p {
     border-bottom: 1px solid #eeeeee;
     gap: 24px;
     padding-bottom: 48px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .our-partners-content.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .our-partners-logo-slider-wrapper {
@@ -1174,6 +1268,9 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
+    opacity: 1;
+    transform: translateY(0px);
+    transition: unset;
   }
 
   .sumatosoft-img {
@@ -1325,20 +1422,20 @@ p {
   }
 
   .our-services-slider-block-item {
-    max-width: 95%;
+    max-width: 97%;
     padding: 26px 16px 16px;
-    gap: 24px;
+    gap: 20px;
+    min-height: 380px;
   }
 
   .slider-item-info-title {
-    font-size: 17px;
+    font-size: 16px;
     line-height: 23px;
   }
 
   .slider-item-info-text {
     font-size: 14px;
     line-height: 19px;
-    min-height: 155px;
   }
 
   .slider-block-item-img {
@@ -1346,8 +1443,8 @@ p {
   }
 
   .finger-icon {
-    top: 28%;
-    height: 28px;
+    top: 25%;
+    height: 20px;
   }
 
   .slick-dotted.slick-slider {
@@ -1379,6 +1476,10 @@ p {
 
   .slick-dots li.slick-active button::before {
     opacity: 0;
+  }
+
+  .slick-dots li button:before {
+    color: unset;
   }
 
   .slick-dots li button {

@@ -5,10 +5,8 @@ function generateItemHtml(service) {
     imagesHtml += `<img src="${extraImg}" alt="${extraImgAlt || 'icon'}" class="finger-icon">`;
   }
   const infoHtml = `
-    <div class="slider-block-item-info">
-      <span class="slider-item-info-title">${title}</span>
-      <span class="slider-item-info-text">${text}</span>
-    </div>
+    <span class="slider-item-info-title">${title}</span>
+    <span class="slider-item-info-text">${text}</span>
   `;
   return `<div class="our-services-slider-block-item">${imagesHtml}${infoHtml}</div>`;
 }
