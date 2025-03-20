@@ -21,106 +21,10 @@
 </header>
 
 <div id="menu-pop-up" class="menu-pop-up hidden">
-  <div class="menu-pop-up-content">
-    <div class="menu-pop-up-close-block">
-      <span>Create Request</span>
-      <img
-        src="../img/desktop-pop-up-close-icon.svg"
-        alt="desktop-pop-up-close-icon"
-        class="desktop-pop-up-close-icon"
-      />
-    </div>
-    <div class="pop-up-info-block">
-      <img
-        src="../img/pop-up-info-block-letter.svg"
-        alt="pop-up-info-block-letter"
-      />
-      <div>
-        <span class="pop-up-info-block-title"
-          >Would you like to become our client?</span
-        >
-        <span class="pop-up-info-block-text">
-          Leave a request and our team of marketing experts will contact you to
-          discuss strategies to promote your business.
-        </span>
-      </div>
-    </div>
-    <form
-      action="components/send.php"
-      method="post"
-      class="pop-up-contact-form"
-    >
-      <div class="form-input-block">
-        <label class="form-label">Your Full Name</label>
-        <input
-          type="text"
-          class="form-input fullName"
-          name="fullName"
-          placeholder="Sara Biverman"
-          required
-        />
-        <span class="error fullNameError"></span>
-      </div>
-
-      <div class="form-input-block">
-        <label class="form-label">Email</label>
-        <input
-          type="email"
-          id="email"
-          class="form-input email"
-          name="email"
-          placeholder="example@mail.com"
-          required
-        />
-        <span class="error emailError"></span>
-      </div>
-
-      <div class="form-input-block">
-        <label class="form-label">Phone</label>
-        <input
-          type="tel"
-          id="phone"
-          class="form-input phone"
-          name="phone"
-          placeholder="Type your mobile number"
-        />
-        <span class="error phoneError"></span>
-      </div>
-
-      <div class="form-input-block">
-        <label class="form-label">Your Company</label>
-        <input
-          type="text"
-          id="company"
-          class="form-input"
-          name="company"
-          placeholder="Type..."
-        />
-      </div>
-
-      <div class="form-input-block">
-        <label class="form-label">Select Required Services</label>
-        <select class="form-input service" name="service" required>
-          <option class="service-option" value="">Select Type</option>
-          <option class="service-option" value="Marketing Research">
-            Marketing Research
-          </option>
-          <option class="service-option" value="Strategic Solutions">
-            Strategic Solutions
-          </option>
-          <option class="service-option" value="End-to-End Marketing">
-            End-to-End Marketing
-          </option>
-          <option class="service-option" value="Global Market Expansion">
-            Global Market Expansion
-          </option>
-        </select>
-        <span class="error serviceError"></span>
-      </div>
-
-      <button type="submit" class="contact-form-button">Send Request</button>
-    </form>
-  </div>
+  <?php
+    include_once 'components/requestForm.php';
+    echo generate_request_form_html(false);
+  ?>
 </div>
 
 <div class="mobile-menu-pop-up">
@@ -137,119 +41,16 @@
         class="pop-up-close-icon"
       />
     </div>
-
     <div class="mobile-menu-info">
       <span>Services</span>
       <span>Advantages</span>
       <span>Clients</span>
       <span>Contacts</span>
     </div>
-
-    <div class="mobile-form" style="display: none">
-      <div class="menu-pop-up-close-block">
-        <span>Create Request</span>
-        <img
-          src="../img/desktop-pop-up-close-icon.svg"
-          alt="desktop-pop-up-close-icon"
-          class="pop-up-close-icon"
-        />
-      </div>
-      <div class="pop-up-info-block">
-        <img
-          src="../img/pop-up-info-block-letter.svg"
-          alt="pop-up-info-block-letter"
-        />
-        <div>
-          <span class="pop-up-info-block-title"
-            >Would you like to become our client?</span
-          >
-          <span class="pop-up-info-block-text">
-            Leave a request and our team of marketing experts will contact you
-            to discuss strategies to promote your business.
-          </span>
-        </div>
-      </div>
-      <form
-        action="components/send.php"
-        method="post"
-        class="pop-up-contact-form pop-up-contact-form-mobile"
-      >
-        <div class="form-input-block">
-          <label class="form-label">Your Full Name</label>
-          <input
-            type="text"
-            class="form-input fullName"
-            name="fullName"
-            placeholder="Sara Biverman"
-            required
-          />
-          <span class="error fullNameError"></span>
-        </div>
-
-        <div class="form-input-block">
-          <label class="form-label">Email</label>
-          <input
-            type="email"
-            id="email"
-            class="form-input email"
-            name="email"
-            placeholder="example@mail.com"
-            required
-          />
-          <span class="error emailError"></span>
-        </div>
-
-        <div class="form-input-block">
-          <label class="form-label">Phone</label>
-          <input
-            type="tel"
-            id="phone"
-            class="form-input phone"
-            name="phone"
-            placeholder="Type your mobile number"
-          />
-          <span class="error phoneError"></span>
-        </div>
-
-        <div class="form-input-block">
-          <label class="form-label">Your Company</label>
-          <input
-            type="text"
-            id="company"
-            class="form-input"
-            name="company"
-            placeholder="Type..."
-          />
-        </div>
-
-        <div class="form-input-block">
-          <label class="form-label">Select Required Services</label>
-          <select class="form-input service" name="service" required>
-            <option class="service-option" value="">Select Type</option>
-            <option class="service-option" value="Marketing Research">
-              Marketing Research
-            </option>
-            <option class="service-option" value="Strategic Solutions">
-              Strategic Solutions
-            </option>
-            <option class="service-option" value="End-to-End Marketing">
-              End-to-End Marketing
-            </option>
-            <option class="service-option" value="Global Market Expansion">
-              Global Market Expansion
-            </option>
-          </select>
-          <span class="error serviceError"></span>
-        </div>
-
-        <button
-          class="contact-form-button contact-form-button-mobile"
-          type="submit"
-        >
-          Send Request
-        </button>
-      </form>
-    </div>
+    <?php
+      include_once 'components/requestForm.php';
+      echo generate_request_form_html(true);
+    ?>
   </div>
   <button class="create-request-btn pop-up-mobile-btn">Send Request</button>
 </div>

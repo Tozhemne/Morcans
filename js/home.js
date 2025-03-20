@@ -1,6 +1,10 @@
 import { renderServices } from '../components/ourServicesSection.js';
 import { manageBodyScroll } from '../utils/body-scroll.js';
-import { validateName, validateEmail, validatePhone, validateServiceSelection } from '../utils/validation.js';
+import {
+  restrictToLettersAndSpaces,
+  restrictToDigits,
+  attachButtonListeners,
+} from '../utils/form-validation.js';
 
 const servicesData = [
   {
@@ -61,95 +65,24 @@ function handleHashNavigation() {
   }
 }
 
-function validateForm(formContainer) {
-  const name = formContainer.querySelector('.fullName-mobile')?.value || '';
-  const email = formContainer.querySelector('.email-mobile')?.value || '';
-  const phone = formContainer.querySelector('.phone-mobile')?.value || '';
-  const service = formContainer.querySelector('.service-mobile')?.value || '';
-
-  formContainer.querySelectorAll('.error').forEach(error => {
-    error.textContent = '';
-    error.style.display = 'none';
-  });
-
-  let isValid = true;
-
-  if (!validateName(name)) {
-    const errorElement = formContainer.querySelector('.fullNameError');
-    errorElement.textContent = 'Please enter your full name.';
-    errorElement.style.display = 'block';
-    isValid = false;
-  }
-  if (!validateEmail(email)) {
-    const errorElement = formContainer.querySelector('.emailError');
-    errorElement.textContent = 'Please enter a valid email address.';
-    errorElement.style.display = 'block';
-    isValid = false;
-  }
-  if (!validatePhone(phone)) {
-    const errorElement = formContainer.querySelector('.phoneError');
-    errorElement.textContent = 'Please enter a valid phone number (at least 10 digits).';
-    errorElement.style.display = 'block';
-    isValid = false;
-  }
-  if (!validateServiceSelection(service)) {
-    const errorElement = formContainer.querySelector('.serviceError');
-    errorElement.textContent = 'Please select a required service.';
-    errorElement.style.display = 'block';
-    isValid = false;
-  }
-
-  return isValid;
-}
-
-const restrictToLettersAndSpaces = (input) => {
-  input.addEventListener('input', (e) => {
-    e.target.value = e.target.value.replace(/[^a-zA-Z\s]/g, '');
-  });
-};
-
-const restrictToDigits = (input, maxLength) => {
-  input.addEventListener('input', (e) => {
-    e.target.value = e.target.value.replace(/\D/g, '').slice(0, maxLength);
-  });
-};
-
-const handleFormSubmission = (formContainer, overlayElement) => {
-  if (validateForm(formContainer)) {
-    overlayElement.classList.add('hidden');
-    manageBodyScroll(overlayElement, 'enable');
-    // Reset styles or additional logic if needed
-  }
-};
-
-const attachButtonListeners = (button, formContainer, overlayElement) => {
-  button.addEventListener('click', () => handleFormSubmission(formContainer, overlayElement));
-  button.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      handleFormSubmission(formContainer, overlayElement);
-    }
-  });
-};
-
 document.addEventListener('DOMContentLoaded', () => {
   renderServices(servicesData, 'our-services-container');
   initOurPartnersSlider();
-  handleHashNavigation(); // Handle navigation from URL hash
+  handleHashNavigation();
 
   const scrollDownIcon = document.querySelector('.scroll-down');
   const targetSection = document.querySelector('.our-partners');
 
   if (scrollDownIcon && targetSection) {
-    const headerHeight = 30;
+    const headerHeight = 20;
     const targetRect = targetSection.getBoundingClientRect();
     const scrollTop = window.scrollY || window.pageYOffset;
     const targetTop = targetRect.top + scrollTop - headerHeight;
 
     scrollDownIcon.addEventListener('click', () => {
       window.scrollTo({
-        top: targetTop,
-        behavior: 'smooth'
+        top: targetTop - 300,
+        behavior: 'smooth',
       });
     });
   } else {
@@ -163,10 +96,94 @@ document.addEventListener('DOMContentLoaded', () => {
   const heroFormContainer = heroMobileFormPopUp?.querySelector('.mobile-form');
   const heroContactFormButton = heroFormContainer?.querySelector('.contact-form-button-mobile');
 
+  // parallax partners
+  const partners = document.querySelector('.our-partners');
+
+  window.addEventListener('scroll', () => {
+    const scrollPosition = window.pageYOffset;
+    const speed = 0.5;
+    const maxOverlap = 300;
+  
+    const marginTop = Math.max(-scrollPosition * speed, -maxOverlap);
+    partners.style.marginTop = `${marginTop}px`;
+  });
+
+  // logos animation
+  const items = document.querySelectorAll('.logo-block-row-item');
+
+  const logoObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        logoObserver.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.3
+  });
+  
+  items.forEach(item => {
+    logoObserver.observe(item);
+  });
+
+  // advantages animation
+  const advantageItems = document.querySelectorAll('.advantages-info-item');
+
+  const OurAdvantagesObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        OurAdvantagesObserver.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.3
+  });
+  
+  advantageItems.forEach(item => {
+    OurAdvantagesObserver.observe(item);
+  });
+
+  // our partners content mobile only animation
+  if (window.innerWidth < 767) {
+    const ourPartnersContent = document.querySelector('.our-partners-content');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.3,
+      }
+    );
+    observer.observe(ourPartnersContent);
+  }
+
+  // hero content animation
+  const heroContent = document.querySelector('.hero-content');
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.5,
+    }
+  );
+  observer.observe(heroContent);
+
   if (heroCreateRequestBtn && heroMobileFormPopUp) {
     heroCreateRequestBtn.addEventListener('click', () => {
       heroMobileFormPopUp.classList.remove('hidden');
-      heroFormContainer.style.display = 'block'; // Show form immediately
+      heroFormContainer.style.display = 'block';
       manageBodyScroll(heroMobileFormPopUp, 'disable');
     });
   }
@@ -185,12 +202,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  if (heroContactFormButton && heroFormContainer) {
-    attachButtonListeners(heroContactFormButton, heroFormContainer, heroMobileFormPopUp);
-  }
-
   if (heroFormContainer) {
     restrictToLettersAndSpaces(heroFormContainer.querySelector('.fullName-mobile'));
     restrictToDigits(heroFormContainer.querySelector('.phone-mobile'), 10);
+  }
+
+  if (heroContactFormButton && heroFormContainer) {
+    attachButtonListeners(heroContactFormButton, heroFormContainer, heroMobileFormPopUp, true);
   }
 });

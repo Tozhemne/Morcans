@@ -1,4 +1,4 @@
-<footer class="footer">
+<footer id="footer" class="footer">
   <div class="footer-container">
     <span class="logo">MORCANS</span>
     <div class="footer-company-info">

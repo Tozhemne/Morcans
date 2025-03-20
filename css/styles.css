@@ -64,8 +64,8 @@ header {
   background-color: transparent;
   box-shadow: none;
   transition: 0.2s;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
+
 header.fixed {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(48px);
@@ -83,6 +83,10 @@ header.fixed {
 
 .logo-img {
   height: 64px;
+}
+
+.pop-up-close-icon {
+  cursor: pointer;
 }
 
 nav ul {
@@ -304,6 +308,7 @@ nav li {
   width: 100%;
   align-items: center;
   justify-content: center;
+  transition: transform 0.3s ease-out;
 }
 
 .footer-container {
@@ -362,7 +367,7 @@ nav li {
   font-weight: 300;
   font-size: 16px;
   line-height: 24px;
-  color: #ffffff !important;
+  color: #ffffff;
   text-decoration: underline;
 }
 
