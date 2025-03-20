@@ -396,7 +396,7 @@ p {
   gap: 48px;
   border: 1px solid #3f3f3f;
   background-color: #252525;
-  max-width: 592px;
+  max-width: calc(50% - 14px);
   position: relative;
 }
 
@@ -590,7 +590,6 @@ p {
   /* Our services section */
 
   .our-services-slider-block-item {
-    max-width: 552px;
     padding: 50px 26px 32px;
   }
 
@@ -752,7 +751,6 @@ p {
   }
 
   .our-services-slider-block-item {
-    max-width: 420px;
     padding: 35px 16px 16px;
     gap: 32px;
   }
@@ -954,7 +952,6 @@ p {
   }
 
   .our-services-slider-block-item {
-    max-width: 500px;
     padding: 35px 16px 16px;
     gap: 32px;
   }
